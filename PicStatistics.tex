@@ -1,0 +1,231 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+\chapter{統計圖形}
+
+\tikzset{
+    treenode/.style = {shape=rectangle, rounded corners,
+        draw, align=center,
+        top color=white, bottom color=blue!20},
+    root/.style     = {treenode, font=\Large, bottom color=red!30},
+    env/.style      = {treenode, font=\ttfamily\normalsize},
+    dummy/.style    = {circle,draw}
+}
+\begin{tikzpicture}
+[
+grow                    = right,
+sibling distance        = 4em,
+level distance          = 10em,
+edge from parent/.style = {draw, -latex},
+every node/.style       = {font=\footnotesize},
+sloped
+]
+\node [root] {不孕症}
+child { node [env] {第二類}
+    child { node [env] {無法人工受孕}
+        edge from parent node [below] {$1$} }
+    edge from parent node [below] {$1-p$} }
+child { node [env] {第一類}
+    child { node [env] {人工受孕失敗}
+        edge from parent node [below] {$1-q$} }
+    child { node [env] {人工受孕成功}
+        edge from parent node [above, align=center]
+        {$q$}}
+    edge from parent node [above] {$p$} };
+\end{tikzpicture}
+
+\tikzset{
+    treenode/.style = {shape=rectangle, rounded corners,
+        draw, align=center,
+        top color=white, bottom color=blue!20},
+    root/.style     = {treenode, font=\Large, bottom color=red!30},
+    env/.style      = {treenode, font=\ttfamily\normalsize},
+    dummy/.style    = {circle,draw}
+}
+\begin{tikzpicture}
+[
+grow                    = right,
+%sibling distance        = 5em,
+level 1/.style={sibling distance=20mm},
+level 2/.style={sibling distance=10mm},
+level distance          = 8em,
+edge from parent/.style = {draw, -latex},
+every node/.style       = {font=\footnotesize},
+sloped
+]
+\node [root] {}
+child { node [env] {丙袋}
+    child { node [env] {兩球均白}
+        edge from parent node [above] {$\frac{C^2_2}{C^5_2} = \frac{1}{10}$} }
+    edge from parent node [below] {$\frac{1}{3}$} }
+child { node [env] {乙袋}
+    child { node [env] {兩球均白}
+        edge from parent node [above] {$\frac{C^3_2}{C^{10}_2} = \frac{3}{45}$} }
+    edge from parent node [below] {$\frac{1}{3}$} }
+child { node [env] {甲袋}
+    child { node [env] {兩球均白}
+        edge from parent node [above] {$\frac{C^3_2}{C^6_2} = \frac{3}{15}$} }
+    edge from parent node [below] {$\frac{1}{3}$} }
+;
+\end{tikzpicture}
+
+\begin{tikzpicture}
+[
+grow                    = right,
+%sibling distance        = 5em,
+level 1/.style={sibling distance=20mm},
+level 2/.style={sibling distance=10mm},
+level distance          = 8em,
+edge from parent/.style = {draw, -latex},
+every node/.style       = {font=\footnotesize},
+sloped
+]
+\node [root] {全班}
+child { node [env] {沒談過}
+    child { node [env] {$B$卷$=$畫 $\Circle$}
+        edge from parent node [below] {$\frac{1}{4}$} }
+    child { node [env] {$A$卷$=$畫 $\texttimes$} 
+        edge from parent node [above, align=center]
+        {$\frac{3}{4}$}}
+    edge from parent node [below] {$40-p$} }
+child { node [env] {有談過}
+    child { node [env] {$B$卷$=$畫$ \texttimes$}
+        edge from parent node [below] {$\frac{1}{4}$} }
+    child { node [env] {$A$卷$=$畫 $\Circle$ }
+        edge from parent node [above, align=center]
+        {$\frac{3}{4}$}}
+    edge from parent node [above] {$p$}
+};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+[
+grow                    = right,
+%sibling distance        = 5em,
+level 1/.style={sibling distance=20mm},
+level 2/.style={sibling distance=10mm},
+level distance          = 6em,
+edge from parent/.style = {draw, -latex},
+every node/.style       = {font=\footnotesize},
+sloped
+]
+\node [root] {}
+child { node [env] {真沒病}
+    child { node [env] {檢驗沒病}
+        edge from parent node [below] {$0.95$} }
+    child { node [env] {檢驗有病} 
+        edge from parent node [above, align=center]
+        {$0.05$}}
+    edge from parent node [below] {$0.8$} }
+child { node [env] {真有病}
+    child { node [env] {檢驗沒病}
+        edge from parent node [below] {$0.1$} }
+    child { node [env] {檢驗有病 }
+        edge from parent node [above, align=center]
+        {$0.9$}}
+    edge from parent node [above] {$0.2$}
+};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[line cap=round,line join=round,x=0.25cm,y=0.25cm]
+\newcommand{\drawCutedPoint}[3]{
+    \foreach \v in {1,2,...,#3}
+    {
+        \coordinate (cCutedPt) at ($ (#1) !{\v/#3}! (#2) $);
+        \draw[ultra thick,fill] (cCutedPt) circle (1.5pt);
+    }
+}
+
+\coordinate (cAPt) at (0,1);
+\coordinate (cBPt) at (4,7);
+\drawCutedPoint{cAPt}{cBPt}{4};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0,0.) -- (10,0.)  node[] {$x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,0) -- (0.,10) node[above] {$y$};
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,x=0.25cm,y=0.25cm]
+\newcommand{\drawCutedPoint}[3]{
+    \foreach \v in {1,2,...,#3}
+    {
+        \coordinate (cCutedPt) at ($ (#1) !{\v/#3}! (#2) $);
+        \draw[ultra thick,fill] (cCutedPt) circle (1.5pt);
+    }
+}
+
+\coordinate (cAPt) at (1,0);
+\coordinate (cBPt) at (7,4);
+\drawCutedPoint{cAPt}{cBPt}{4};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0,0.) -- (10,0.)  node[] {$x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,0) -- (0.,10) node[above] {$y$};
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,x=0.25cm,y=0.25cm]
+\newcommand{\drawCutedPoint}[3]{
+    \foreach \v in {1,2,...,#3}
+    {
+        \coordinate (cCutedPt) at ($ (#1) !{\v/#3}! (#2) $);
+        \draw[ultra thick,fill] (cCutedPt) circle (1.5pt);
+    }
+}
+
+\coordinate (cAPt) at (0,5);
+\coordinate (cBPt) at (7,1);
+\drawCutedPoint{cAPt}{cBPt}{4};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0,0.) -- (10,0.)  node[] {$x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,0) -- (0.,10) node[above] {$y$};
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,x=0.25cm,y=0.25cm]
+\newcommand{\drawCutedPoint}[3]{
+    \foreach \v in {1,2,...,#3}
+    {
+        \coordinate (cCutedPt) at ($ (#1) !{\v/#3}! (#2) $);
+        \draw[ultra thick,fill] (cCutedPt) circle (1.5pt);
+    }
+}
+
+\coordinate (cAPt) at (0,7);
+\coordinate (cBPt) at (7,7);
+\drawCutedPoint{cAPt}{cBPt}{4};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0,0.) -- (10,0.)  node[] {$x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,0) -- (0.,10) node[above] {$y$};
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,x=0.25cm,y=0.25cm]
+\newcommand{\drawCutedPoint}[3]{
+    \foreach \v in {1,2,...,#3}
+    {
+        \coordinate (cCutedPt) at ($ (#1) !{\v/#3}! (#2) $);
+        \draw[ultra thick,fill] (cCutedPt) circle (1.5pt);
+    }
+}
+
+\coordinate (cAPt) at (7,0);
+\coordinate (cBPt) at (7,7);
+\drawCutedPoint{cAPt}{cBPt}{4};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0,0.) -- (10,0.)  node[] {$x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,0) -- (0.,10) node[above] {$y$};
+\end{tikzpicture}
+
+\section{二項分布}
+\begin{tikzpicture}[scale=0.85,
+remember picture,
+declare function={binom(\k,\n,\p)=\n!/(\k!*(\n-\k)!)*\p^\k*(1-\p)^(\n-\k);},
+xshift=0cm,yshift=0cm
+]
+\begin{axis}[
+xmin=0,ymin=0,
+scale only axis,samples=2000,
+samples at={0,...,10},
+yticklabel style={
+    /pgf/number format/fixed,
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2
+},
+ybar=0pt, bar width=10
+]
+\addplot [fill=cyan, fill opacity=0.5] {binom(x,10,0.5)};
+\addlegendentry{$p=0.5$}
+\addplot[smooth, domain=0:10] {1/(sqrt(10/4)*sqrt(2*pi))*exp(-(\x-5)^2/(2*(sqrt(10/4))^2))};
+\addlegendentry{Normal Dist.}
+
+\end{axis}
+\end{tikzpicture}

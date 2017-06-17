@@ -1,0 +1,203 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+\chapter{直線、區域與線性規劃}
+
+    \begin{tikzpicture}
+\makeatletter
+\tikzset{
+    nomorepostaction/.code=\makeatletter\let\tikz@postactions\pgfutil@empty, % From http://tex.stackexchange.com/questions/3184/applying-a-postaction-to-every-path-in-tikz/5354#5354
+    my axis/.style={
+        postaction={
+            decoration={
+                markings,
+                mark=at position 1 with {
+                    \arrow[ultra thick]{latex}
+                }
+            },
+            decorate,
+            nomorepostaction
+        },
+        thin,
+        -, % switch off other arrow tips
+        every path/.append style=my axis % this is necessary so it works both with "axis lines=left" and "axis lines=middle"
+    }
+}
+\makeatother
+
+\pgfplotsset{ticks=none}
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style = {my axis},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+ymax =10
+]
+%Below the red parabola is defined
+\addplot [
+domain=-6:6, 
+samples=100, 
+color=black,ultra thick
+]
+{+0.5*x+1};
+%\addlegendentry{$\$}
+%Here the blue parabloa is defined
+\addplot [
+domain=-6:6, 
+samples=100, 
+color=black,ultra thick
+]
+{-2*x+6};
+\addplot [
+domain=-6:6, 
+samples=100, 
+color=black,ultra thick
+]
+{-0.5*x-1};
+\node[label=150:$L_1$] at (axis cs:6,4){};
+\node[label=230:$L_2$] at (axis cs:-2,10){};
+\node[label=70:$L_3$] at (axis cs:-6,2){};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cBPt) at (5,0);
+\coordinate (cAPt) at (-2,0) ;
+
+\coordinate (cPPt) at  ($ (cAPt) !0.66! (cBPt) $); 
+\draw (cAPt) -- (cBPt) ;
+\draw [semithick] (cAPt) -- (cPPt) node [midway, above ] {$\textc{3}$};	
+
+\draw [semithick] (cBPt) -- (cPPt) node [midway, above ] {$\textc{2}$};	
+
+
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/90/$B$,
+    cPPt/90/$P$,
+    cAPt/270/$-2$,
+    cBPt/270/$13$,
+    cPPt/270/$x$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cBPt) at (0,0);
+\coordinate (cAPt) at (-2,0) ;
+\coordinate (cPPt) at  ($ (cAPt) !3! (cBPt) $); 
+\draw (cAPt) -- (cBPt) ;
+\draw (cAPt) -- (cPPt) ;
+\draw [semithick] (cAPt)  .. controls +(30:1cm) and +(150:1cm) .. (cPPt) node [midway, above ] {$\textc{3}$};	
+
+\draw [semithick] (cBPt) .. controls +(-30:1cm) and +(-150:1cm) .. (cPPt) node [midway, below ] {$\textc{2}$};	
+
+
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/90/$B$,
+    cPPt/90/$P$,
+    cAPt/270/$-2$,
+    cBPt/270/$13$,
+    cPPt/270/$x$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+       
+\begin{tikzpicture}
+\coordinate (cLineL) at (-4, 0);
+\coordinate (cLineR) at (6, 0);
+\coordinate (cAL) at (-3,0);
+\coordinate (cAR) at (5,0);
+
+\draw  (cLineL) -- (cLineR);
+\draw[ultra thick]  (cAL) -- (cAR);
+
+\foreach \v in 
+{   0,1,2
+}
+{
+    \draw[dashed] (\v-3,2-0.8*\v) -- (\v-3,0);
+    \draw[dashed] (\v+3,2-0.8*\v) -- (\v+3,0);
+    
+    \begin{scope}[shift={(0,2-0.8*\v)}]
+    \def\Bradius{3}
+    \coordinate (cBC) at (\v, 0);
+    \coordinate (cBR) at (\v + \Bradius, 0);
+    \coordinate (cBL) at (\v - \Bradius, 0);
+    \draw [-{Stealth[scale=1.3,angle'=45]},semithick]  (cBC) -- (cBR);
+    \draw [-{Stealth[scale=1.3,angle'=45]},semithick]  (cBC) -- (cBL);
+    \draw[ultra thick,fill] (cBC) circle (0.8pt);
+    \node[label=90:$\v$] at (cBC){};
+    \node[label=180:$A$] at (cBL){};
+    \end{scope}
+};
+
+\foreach \v/\u/\t in 
+{   cAL/270/$-3$,
+    cAR/270/$5$,
+    cLineL/180/$B$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+
+	\begin{tikzpicture}
+\coordinate (cAPt) at (0.67,3);
+\coordinate (cBPt) at (2,1);
+\coordinate (cCPt) at (3.5,2.5);
+\coordinate (cDPt) at (1.6,4.4);
+%繪製斜線，陰影區 線性規劃的方法
+\draw[pattern=north west lines, ultra thick] (cAPt) -- (cBPt)--(cCPt)--(cDPt) -- (cAPt) circle ;
+
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/270/$B$,
+    cCPt/0/$C$,
+    cDPt/90/$D$,
+    cOPt/225/$O$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};			
+% x軸 y 軸 axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-0.5,0) -- (6,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-0.5)->(0,6)   node[above] {$y$};
+
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=0.7]
+\coordinate (cAPt) at (2,3);
+\coordinate (cBPt) at (3.95,0);
+\coordinate (cCPt) at (0,4);
+\coordinate (cDPt) at (0,0);
+\coordinate (cPPt) at  (4.34, -0.6);
+\coordinate (cQPt) at = (-0.52, 6.88);
+\coordinate (cRPt) at = (-0.6, 4.3);
+\coordinate (cSPt) at = (9.14, -0.57);
+%繪製斜線，陰影區 線性規劃的方法
+\draw[pattern=north west lines, ultra thick] (cAPt) -- (cBPt)--(cDPt)--(cCPt) -- (cAPt) circle ;
+
+\draw[semithick] (cQPt) -- (cPPt) node[] {$L_1$};
+\draw[semithick] (cRPt) -- (cSPt) node[] {$L_2$};
+
+
+\draw[ultra thick,fill] (cAPt) circle (2pt);
+\node[above ] at (cAPt){$A(2,3)$};			
+% x軸 y 軸 axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-0.5,0) -- (10,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-0.5)->(0,7)   node[above] {$y$};
+
+
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc, arrows, patterns,angles ,positioning,quotes}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{tkz-euclide}
+%\usepackage{tkz-euclide}
+%\usetkzobj{all}
+
+
+%==== Chinese Setting  ====== 
+
+\input{E:/NCTUG2/TEX/LatexCodeTemplate/inputFile/Qheader.tex}
+
+\begin{document}
+\special{em:linewidth 0.8pt}
+\unitlength 1.00mm
+\linethickness{0.8pt}
+\begin{picture}(73.00,9.00)
+\psset{unit=\unitlength}
+\psline{->}(39.00,9.00)(39.00,6.00)
+\put(73.00,9.00){\makebox(0,0)[lc]{\scriptsize 三個骰子中恰有1個1點}}
+\put(1.00,1.00){\makebox(0,0)[lc]{$x=1$，則$f(x)=\FR{C^3_1\cdot C^5_1\cdot C^5_1}{6^3}=\FR{75}{216}$}}
+%\emline{39.00}{9.00}{3}{72.00}{9.00}{4}
+\end{picture}
+\end{document}

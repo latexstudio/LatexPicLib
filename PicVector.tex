@@ -1,0 +1,776 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+\chapter{平面向量}
+
+	\begin{tikzpicture}
+\coordinate (cAPt) at (0:0);
+\coordinate (cBPt) at (225:6);
+\coordinate (cCPt) at (330:3);
+\coordinate (cDPt) at  ($ (cBPt) !.66! (cCPt) $); 
+\coordinate (cEPt) at ($(cAPt) !.66! (cDPt) $);
+\draw[ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt)  circle ;
+\draw[semithick] (cAPt) -- (cDPt);
+
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cAPt) -- (cEPt);
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cDPt/270/$D$,
+    cEPt/0/$E$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};		
+\draw [semithick] (cBPt) -- (cDPt) node [midway, below ] {$\textc{2}$};		
+
+\draw [semithick] (cDPt) -- (cCPt) node [midway, below ] {$\textc{1}$};		
+\draw [semithick] (cAPt) -- (cEPt) node [midway, left ] {$\textc{2}$};		
+
+\draw [semithick] (cEPt) -- (cDPt) node [midway, left ] {$\textc{1}$};		
+
+\end{tikzpicture}	
+\begin{tikzpicture}
+\coordinate (cAPt) at (2,3);
+\coordinate (cBPt) at (0,0);
+\coordinate (cCPt) at (5,0);
+\coordinate (cPPt) at  ($ (cAPt) !.33! (cCPt) $); 
+\coordinate (cQPt) at ($(cBPt) !.66! (cCPt) $);
+\draw[ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt)  circle ;
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cPPt) -- (cQPt);
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cQPt/270/$Q$,
+    cPPt/45/$P$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};		
+\draw [semithick] (cAPt) -- (cPPt) node [midway, above  ] {$\textc{1}$};		
+
+\draw [semithick] (cPPt) -- (cCPt) node [midway, above  ] {$\textc{2}$};		
+\draw [semithick] (cCPt) -- (cQPt) node [midway, below ] {$\textc{1}$};		
+
+\draw [semithick] (cBPt) -- (cQPt) node [midway, below ] {$\textc{2}$};		
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cOPt) at (0,0);
+\coordinate (cXPt) at (5,0);
+\coordinate (cAPt) at (120:2);
+\coordinate (cBPt) at (60:3);
+\coordinate (cCPt) at (4,{2*sqrt(3)});
+\draw[ultra thick] (cOPt) -- (cAPt) -- (cBPt) -- (cCPt) -- (cOPt)  circle ;
+\draw[ultra thick] (cOPt) -- (cBPt);
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cOPt) -- (cXPt) node[] {$x$};
+
+\draw[ultra thick,fill] (cAPt) circle (2pt);
+\node[above=3mm ] at (cAPt){$A(-1,\sqrt{3})$};
+\node[above=3mm] at (cBPt){$B(\frac{3}{2}$ , $\frac{3\sqrt{3}}{2})$};
+\node[above] at (cCPt){$C(4 , 2\sqrt{3})$};
+\pic [draw, -, "$\theta$", angle eccentricity=2.5] {angle = cXPt--cOPt--cCPt};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cAPt) at ({7/sqrt(2)}, {7/sqrt(2)});
+\coordinate (cBPt) at (0,0);
+\coordinate (cDPt) at ({7/sqrt(2)},0);
+\coordinate (cCPt) at ({8/sqrt(2)},0);
+\coordinate (cHPt) at ({7/sqrt(2)}, {1/sqrt(2)} );
+\coordinate (cEPt) at (intersection of cBPt--cHPt and cAPt--cCPt);
+\coordinate (cFPt) at (intersection of cCPt--cHPt and cAPt--cBPt);
+\draw[ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt)  circle ;
+\draw[ultra thick] (cAPt) -- (cDPt) ;
+\draw[ultra thick] (cBPt) -- (cEPt) ;
+\draw[ultra thick] (cCPt) -- (cFPt) ;
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cDPt/270/$D$,
+    cHPt/180/$H$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};		
+
+\end{tikzpicture}
+
+	\begin{tikzpicture}
+\coordinate (cOPt) at (0,0);
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (4,5);
+\coordinate (cCPt) at (5,0);
+\coordinate (cDPt) at  ($ (cAPt) !.4! (cBPt) $); 
+\coordinate (cEPt) at ($(cAPt) !.75! (cCPt) $);
+\coordinate (cPPt) at (intersection of cBPt--cEPt and cCPt--cDPt);
+\draw [ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt) circle ;
+\draw [ultra thick] (cBPt) -- (cEPt) ;
+\draw [ultra thick] (cCPt) -- (cDPt);	
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cPPt);	
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/0/$B$,
+    cCPt/0/$C$,
+    cPPt/0/$P$,
+    cEPt/270/$E$,
+    cDPt/135/$D$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};					
+\end{tikzpicture}
+\newline
+\begin{tikzpicture}
+\coordinate (cPPt) at (5,2);
+\coordinate (cOPt) at (0,0);
+\coordinate (cAPt) at (4.6,0);
+\coordinate (cBPt) at (0,3);
+\draw [ultra thick] (cAPt) -- (cBPt) -- (cOPt) -- (cAPt) circle ;
+\draw [ultra thick] (cPPt) -- (cAPt);
+\draw [ultra thick] (cPPt) -- (cBPt);
+
+\foreach \v/\u/\t in 
+{cAPt/270/$A$,
+    cBPt/180/$B$,
+    cPPt/0/$P$,
+    cOPt/225/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};			
+% x軸 y 軸 axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-0.5,0) -- (6,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-0.5)->(0,4)   node[above] {$y$};
+\begin{scope}[shift={(5,2)}, rotate=-11.3]
+\newcommand{\nRect}{0.3cm}
+\def\rectanglepath{-- +(-\nRect,0cm) -- +(-\nRect,-\nRect) -- +(0cm,-\nRect) -- cycle} 
+\draw (0,0) \rectanglepath;
+
+\end{scope}		 
+\draw [semithick] (cBPt) -- (cDPt) node [midway, below ] {$\textc{2}$};   
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=0.7]
+\coordinate (cAPt) at (6.63, 0);
+\coordinate (cBPt) at (6.63, 3.74);
+\coordinate (cCPt) at (0, 3.74);
+\coordinate (cDPt) at (3.35, -4.42);
+\coordinate (cEPt) at (-1.8, 2.38);
+\coordinate (cFPt) at (2.42, -3.19);
+\coordinate (cOPt) at (0, 0);
+\coordinate (cZPt) at (-2.97, 3.93);
+\draw [ultra thick] (cOPt) -- (cAPt) -- (cBPt) -- (cCPt) -- (cOPt)  circle;
+\draw [ultra thick] (cCPt) -- (cEPt) ;
+\draw [ultra thick] (cAPt) -- (cFPt);
+\draw [ultra thick] (cZPt) -- (cDPt);
+\foreach \v/\u/\t in 
+{cAPt/0/$A$,
+    cBPt/0/$B$,
+    cCPt/180/$C$,
+    cOPt/180/$O$,
+    cEPt/180/$E$,
+    cFPt/180/$F$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};					
+\node[label=0:$L$] at (cDPt){};
+
+
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\coordinate (cOPt) at (0,0);
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (4,5);
+\coordinate (cCPt) at (5,0);
+\coordinate (cDPt) at  ($ (cAPt) !.6! (cBPt) $); 
+\coordinate (cEPt) at ($(cAPt) !.66! (cCPt) $);
+\coordinate (cPPt) at (intersection of cBPt--cEPt and cCPt--cDPt);
+\draw [ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt) circle ;
+\draw [ultra thick] (cBPt) -- (cEPt) ;
+\draw [ultra thick] (cCPt) -- (cDPt);	
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cPPt);	
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/0/$B$,
+    cCPt/0/$C$,
+    cPPt/0/$P$,
+    cEPt/270/$C^\prime$,
+    cDPt/135/$B^\prime$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};					
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cOPt) at (0,0); 
+\coordinate (cAPt) at (3,0);
+\coordinate (cBPt) at (1,3);
+\coordinate (cQPt) at ($(cAPt) !.4! (cBPt) $);		
+\coordinate (cPPt) at ($(cOPt) !1.25! (cQPt) $);		
+\draw [ultra thick] (cOPt) -- (cAPt) -- (cBPt) -- (cOPt) circle;
+\draw[ultra thick, -{Stealth[scale=1.3,angle'=45]}] (cOPt) -- (cPPt);
+\foreach \v/\u/\t in 
+{cOPt/180/$O$,
+    cAPt/0/$A$,
+    cBPt/90/$B$,
+    cPPt/0/$P$,
+    cQPt/90/$Q$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};			
+%		\draw [semithick] (cBPt) -- (cQPt) node [midway, anchor = south west] {$\textc{3}$}; 
+%				\draw [semithick] (cQPt) -- (cAPt) node [midway, ] {$\textc{2}$};  	
+%						\draw [semithick] (cBPt) -- (cQPt) node [midway, anchor = south west] {$\textc{3}$}; 
+\draw [semithick] (cOPt) -- (cQPt) node [midway, anchor= north west] {$\textc{4}$};
+\draw [semithick] (cQPt) -- (cPPt) node [midway, anchor= north west] {$\textc{1}$};
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\coordinate (cOPt) at (2, 3);
+\coordinate (cAPt) at (0, 0);
+\coordinate (cBPt) at (4, 0);
+%\coordinate (cDPt) at (2, 0);
+%\coordinate (cEPt) at (1, 1.5);
+\coordinate (cGPt) at (2, 1);
+\coordinate (cPPt) at (0.52, 0.78);
+\coordinate (cQPt) at (3.21, 1.19);
+\draw [ultra thick] (cOPt) -- (cAPt) -- (cBPt) -- (cOPt) circle ;
+\draw [ultra thick] (cPPt) -- (cQPt) ;
+\foreach \v/\u/\t in 
+{cOPt/90/$O$,
+    cAPt/180/$A$,
+    cBPt/0/$B$,
+    cPPt/180/$P$,
+    cQPt/0/$Q$,
+    cGPt/270/$G$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};				
+
+
+\end{tikzpicture}
+	\begin{tikzpicture}
+\newcommand{\BX}{-4};
+\newcommand{\BY}{-4};
+\newcommand{\CX}{2};
+\newcommand{\CY}{-4};
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (\BX, \BY);
+\coordinate (cCPt) at (\CX, \CY);
+\coordinate (cPPt) at ({\BX*0.25 + \CX*0.2}, {\BY*0.25+\CY * 0.2});
+\coordinate (cMPt) at ($(cAPt) !.4! (cBPt) $);
+\draw [ ultra thick] (cAPt) --(cBPt) -- (cCPt) -- (cAPt) circle;
+\draw [ pattern=north west lines, ultra thick] (cBPt) --(cMPt) -- (cPPt) -- (cBPt) ;
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cPPt/0/$P$,
+    cMPt/135/$M$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cAPt) at (3,0);
+\coordinate (cxLeft) at (-1,0);
+\coordinate (cx) at (4,0);
+\coordinate (cyUp) at (1.5,3);
+\coordinate (cyDown) at (-1.5,-3);
+\coordinate (cBPt) at (1,2);
+\coordinate (cCPt) at (-1,-2);
+\coordinate (cOPt) at (0,0);	
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cxLeft) -- (cx);
+\draw[pattern=north west lines, ultra thick] (cAPt) -- (cOPt)--(cCPt)--(cAPt) circle;		
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cyDown) -- (cyUp);	
+\draw [ ultra thick] (cAPt) -- (cCPt);			
+\foreach \v/\u/\t in 
+{cAPt/45/$A$,
+    cBPt/135/$B$,
+    cCPt/135/$C$,
+    cOPt/135/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};						
+\end{tikzpicture}
+	\begin{tikzpicture}[scale=1.5]
+\coordinate (cAPt) at (240:1);
+\coordinate (cBPt) at (300:1);
+\coordinate (cCPt) at (0:1);
+\coordinate (cDPt) at (60:1);
+\coordinate (cEPt) at (120:1);
+\coordinate (cFPt) at (180:1);
+\coordinate (cOPt) at (0,0);
+\draw (cAPt) -- (cBPt) -- (cCPt) -- (cDPt) -- (cEPt) -- (cFPt) -- (cAPt) circle;
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cOPt);
+
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cBPt) -- (cOPt);
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cBPt);
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cCPt) -- (cDPt);
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cFPt);
+
+\foreach \v/\u/\t in 
+{cAPt/240/$A$,
+    cBPt/300/$B$,
+    cCPt/0/$C$,
+    cDPt/60/$D$,
+    cEPt/120/$E$,
+    cFPt/180/$F$,
+    cOPt/90/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1.5pt);
+    \node[label=\u:\t] at (\v){};
+};		
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cAPt) at (3,0);
+\coordinate (cxLeft) at (-1,0);
+\coordinate (cx) at (5,0);
+\coordinate (cyUp) at (3,6);
+\coordinate (cyDown) at (-1,-2);
+\coordinate (cPPt) at (4,0);
+\coordinate (cQPt) at (2,4);
+\coordinate (cOPt) at (0,0);
+
+\draw[fill=lightgray] (3,6) -- (2,4)--(4,0)--(5,0) -- (5,6) -- (3,6) circle;
+
+\draw [ultra thick] (cxLeft) -- (cx);
+\draw [ultra thick] (cyDown) -- (cyUp);	
+
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cOPt) -- (cPPt);
+
+\draw [-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cOPt) -- (cQPt);
+\foreach \v/\u/\t in 
+{cOPt/315/$O$,
+    cPPt/225/$P$,
+    cQPt/90/$Q$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\node at (4,4){$A$};
+
+\end{tikzpicture}
+\begin{tikzpicture}  
+\newcommand{\AX}{0.3};
+\newcommand{\AY}{0};
+\newcommand{\BX}{0.1};
+\newcommand{\BY}{0.5};
+\newcommand{\MAXX}{20}
+\newcommand{\MAXY}{11};
+\foreach \v in 
+{0,...,\MAXX}
+{
+    \draw  ({\AX * \v } , {\AY*\v})  -- ({\AX * \v +  \BX * \MAXY}, {\AY*\v + \BY * \MAXY});
+}
+\foreach \v in 
+{0,...,\MAXY}
+{
+    \draw ({\BX * \v } , {\BY*\v})  -- ({\BX * \v +  \AX * \MAXX}, {\BY*\v + \AY * \MAXX});
+}
+%%畫出斜坐標向量
+\foreach \i/\j/\k\l/\m/\n/\o/\p in 
+{
+    1/2/180/$A$/3/6/0/$B$,
+    10/7/0/$C$/3/10/180/$D$,
+    16/3/315/$E$/12/11/90/$F$,
+    8/2/0/$ $/12/2/0/$ $,
+    8/2/0/$ $/8/4/0/$ $
+}
+{
+    \draw[-{Stealth[scale=1.3,angle'=45]}, ultra thick] ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j})  -- ({ \AX*\m + \BX*\n}, {\AY*\m + \BY*\n});
+    \draw[ultra thick,fill] ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j}) circle (2.5pt);
+    \node[label=\k:\l] at ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j}){};
+    \node[label=\o:\p] at ({ \AX*\m + \BX*\n}, {\AY*\m + \BY*\n}){};
+    
+};	
+
+\node[label=0:$\lvec{a}$] at ({ \AX*12 + \BX*2}, {\AY*12 + \BY*2}) {};
+\node[label=45:$\lvec{b}$] at ({ \AX*8 + \BX*4}, {\AY*8 + \BY*4}) {};
+
+
+\end{tikzpicture}
+\begin{tikzpicture}
+\coordinate (cAPt) at (1, 0);
+\coordinate (cBPt) at (4, 0);
+\coordinate (cCPt) at (3, 1);
+\coordinate (cDPt) at (5, 4);
+\coordinate (cEPt) at (2, 2);
+\coordinate (cFPt) at (0, 3);
+
+\draw [ ultra thick] (cAPt) --(cBPt) -- (cCPt) -- (cDPt) -- (cEPt) -- (cFPt) -- (cAPt) circle;
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/0/$B$,
+    cCPt/0/$C$,
+    cDPt/0/$D$,
+    cEPt/90/$E$,
+    cFPt/135/$F$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+	\begin{tikzpicture}  [scale = 0.6]
+\newcommand{\AX}{2};
+\newcommand{\AY}{0};
+\newcommand{\BX}{-1};
+\newcommand{\BY}{sqrt(3)};
+\newcommand{\MAXX}{5}
+\newcommand{\MAXY}{7};
+\foreach \v in 
+{0,...,\MAXX}
+{
+    \draw  ({\AX * \v } , {\AY*\v})  -- ({\AX * \v +  \BX * \MAXY}, {\AY*\v + \BY * \MAXY});
+}
+\foreach \v in 
+{0,...,\MAXY}
+{
+    \draw ({\BX * \v } , {\BY*\v})  -- ({\BX * \v +  \AX * \MAXX}, {\BY*\v + \AY * \MAXX});
+}
+%%畫出斜坐標向量
+\foreach \i/\j/\k\l/\m/\n/\o/\p in 
+{
+    0/4/180/$A$/4/7/0/$B$,
+    1/4/225/$C$/4/2/225/$D$,
+    0/0/0/$ $/3/0/0/$ $,
+    0/1/0/$ $/0/0/0/$ $
+}
+{
+    \draw[-{Stealth[scale=1.3,angle'=45]}, ultra thick] ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j})  -- ({ \AX*\m + \BX*\n}, {\AY*\m + \BY*\n});
+    \draw[ultra thick,fill] ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j}) circle (2.5pt);
+    \node[label=\k:\l] at ({\AX * \i + \BX * \j } , {\AY*\i + \BY * \j}){};
+    \node[label=\o:\p] at ({ \AX*\m + \BX*\n}, {\AY*\m + \BY*\n}){};
+    
+};	
+
+\draw [semithick] ({\AX * 0 + \BX * 1 } , {\AY*0 + \BY * 1}) --  ({ \AX*0 + \BX*0}, {\AY*0 + \BY*0}) node [midway,  left ] {$\lvec{b}$}; 
+\draw [semithick] ({\AX * 0 + \BX * 0 } , {\AY*0 + \BY * 0}) --  ({ \AX*3 + \BX*0}, {\AY*3 + \BY*0}) node [midway,  below ] {$\lvec{a}$}; 
+%漂亮標示角度
+\coordinate (cOPt) at (0,0);
+\coordinate (cXPt) at (2,0);
+\coordinate (cYPt) at (-1,{sqrt(3)});
+
+\pic [draw, -, "", angle eccentricity=2.5] {angle = cXPt--cOPt--cYPt};
+\node[label={[shift={(0.5,0.05)}]$120^\circ$}] at (0,0) {};	
+\end{tikzpicture}
+
+	\begin{tikzpicture}
+\coordinate (cBPt) at (0,0);
+\coordinate (cCPt) at (4,0);
+\coordinate (cAPt) at (1,3);
+\coordinate (cDPt) at (5,3);
+
+\coordinate (cQPt) at  ($ (cAPt) !0.71! (cBPt) $); 
+\coordinate (cRPt) at ($(cBPt) !0.43! (cCPt) $);
+\coordinate (cSPt) at ($ (cDPt) !0.71! (cCPt) $); 
+\coordinate (cTPt) at ($(cAPt) !0.43! (cDPt) $);	
+
+
+\draw [dashed] (cRPt) -- (cTPt);
+\draw [dashed] (cQPt) -- (cSPt);
+\coordinate (cPPt) at (intersection of cRPt--cTPt and cQPt--cSPt);
+\draw (cPPt) -- (cAPt) ;
+\draw (cPPt) -- (cBPt) ;
+\draw (cPPt) -- (cCPt) ;
+\draw (cPPt) -- (cDPt) ;
+
+\draw [semithick] (cDPt) -- (cSPt) node [midway,   ] {$\textc{5}$};	
+\draw [semithick] (cSPt) -- (cCPt) node [midway,   ] {$\textc{2}$};	
+
+
+\draw [semithick] (cAPt) -- (cTPt) node [midway,  above ] {$\textc{3}$};	
+\draw [semithick] (cTPt) -- (cDPt) node [midway,  above ] {$\textc{4}$};	
+
+\draw (cAPt) -- (cBPt) -- (cCPt) -- (cDPt) --(cAPt)  circle;		
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cDPt/0/$D$,
+    cPPt/90/$P$,
+    cQPt/180/$Q$,
+    cRPt/270/$R$,
+    cSPt/0/$S$,
+    cTPt/90/$T$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+\begin{tikzpicture}
+\newcommand{\BX}{-4};
+\newcommand{\BY}{-4};
+\newcommand{\CX}{2};
+\newcommand{\CY}{-4};
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (\BX, \BY);
+\coordinate (cCPt) at (\CX, \CY);
+\coordinate (cPPt) at ({\BX*0.25 + \CX*0.2}, {\BY*0.25+\CY * 0.2});
+\coordinate (cMPt) at ($(cAPt) !.4! (cBPt) $);
+\draw [ ultra thick] (cAPt) --(cBPt) -- (cCPt) -- (cAPt) circle;
+\draw [dashed] (cPPt) --(cAPt);
+\draw [dashed] (cPPt) --(cCPt);
+\draw [semithick] (cAPt) -- (cMPt) node [midway, above left ] {$\textc{2}$};		
+
+\draw [semithick] (cMPt) -- (cBPt) node [midway, above left ] {$\textc{3}$};		
+
+\draw [ pattern=north west lines, ultra thick] (cBPt) --(cMPt) -- (cPPt) -- (cBPt) ;
+
+
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cPPt/0/$P$,
+    cMPt/135/$M$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\coordinate (cAPt) at (2,3);
+\coordinate (cBPt) at (0,0);
+\coordinate (cCPt) at (5,0);
+\coordinate (cPPt) at  ($ (cAPt) !.5! (cCPt) $); 
+\coordinate (cQPt) at ($(cBPt) !.33! (cCPt) $);
+\draw[ultra thick] (cAPt) -- (cBPt) -- (cCPt) -- (cAPt)  circle ;
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cPPt) -- (cQPt);
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$,
+    cQPt/270/$Q$,
+    cPPt/45/$P$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};		
+\draw [semithick] (cAPt) -- (cPPt) node [midway, above  ] {$\textc{1}$};		
+
+\draw [semithick] (cPPt) -- (cCPt) node [midway, above  ] {$\textc{1}$};		
+\draw [semithick] (cCPt) -- (cQPt) node [midway, below ] {$\textc{2}$};		
+
+\draw [semithick] (cBPt) -- (cQPt) node [midway, below ] {$\textc{1}$};		
+
+\end{tikzpicture}
+			\begin{tikzpicture}
+\coordinate (cBPt) at (4,0);
+\coordinate (cCPt) at (5,3);
+\coordinate (cAPt) at (0,0) ;
+\coordinate (cDPt) at (1,3);
+
+\coordinate (cFPt) at  ($ (cDPt) !0.33! (cCPt) $); 
+\coordinate (cOPt) at ($(cAPt) !0.5! (cCPt) $);
+\coordinate (cEPt) at ($ (cOPt) !0.5! (cDPt) $); 
+
+\draw (cAPt) -- (cCPt) ;
+\draw (cBPt) -- (cDPt) ;
+\draw (cAPt) -- (cFPt) ;
+\draw [semithick] (cAPt) -- (cBPt) node [midway, below ] {$\textc{3}$};	
+
+\draw [semithick] (cDPt) -- (cFPt) node [midway, above ] {$\textc{1}$};	
+
+\draw [semithick] (cCPt) -- (cFPt) node [midway, above ] {$\textc{2}$};	
+
+\draw (cAPt) -- (cBPt) -- (cCPt) -- (cDPt) --(cAPt)  circle;
+
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/0/$B$,
+    cCPt/0/$C$,
+    cDPt/180/$D$,
+    cOPt/270/$O$,
+    cEPt/0/$E$,
+    cFPt/90/$F$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+	\begin{tikzpicture}
+\newcommand{\BX}{-4};
+\newcommand{\BY}{-4};
+\newcommand{\CX}{2};
+\newcommand{\CY}{-4};
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (\BX, \BY);
+\coordinate (cCPt) at (\CX, \CY);
+
+\draw (cAPt) --(cBPt) -- (cCPt) -- (cAPt) circle;
+\draw[-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cBPt);
+\draw[-{Stealth[scale=1.3,angle'=45]}, ultra thick] (cAPt) -- (cCPt);
+
+\foreach \v/\u/\t in 
+{cAPt/90/$A$,
+    cBPt/180/$B$,
+    cCPt/0/$C$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=0.7cm]
+\coordinate (A) at (0,4);
+\coordinate (P) at (2,0);
+\coordinate (B) at (4,4);
+\coordinate (xStart) at (-1,0);
+\coordinate (xEnd) at (5,0);
+
+\draw[-{Stealth[scale=1,angle'=45]}] (xStart) -- (xEnd)  node[] {$x$};
+\draw[->,thick ] (P) -- (B)  ;
+\draw[->,thick ] (A) -- (P)  ;
+
+%畫上
+\foreach \v/\u/\t in 
+{   A/135/$A$,
+    P/270/$P$,
+    B/45/$B$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+\tkzLabelAngle[pos=0.5](A,P,xStart){$\theta$};
+\tkzLabelAngle[pos=0.5](B,P,xEnd){$\theta$};
+
+\end{tikzpicture}
+\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=0.7cm]
+\coordinate (A) at (0,4);
+\coordinate (P) at (2,0);
+\coordinate (B) at (4,4);
+\coordinate (BP) at (4,-4);
+\coordinate (Q) at(3,2);
+\coordinate (QP) at(3,-2);
+
+\coordinate (xStart) at (-1,0);
+\coordinate (xEnd) at (5,0);
+
+\draw[-{Stealth[scale=1,angle'=45]}] (xStart) -- (xEnd)  node[] {$x$};
+\draw[->, thick ] (P) -- (B)  ;
+\draw[->, thick ] (A) -- (P)  ;
+\draw[thick ,dashed] (Q) -- (QP)  ;
+\draw[thick ,dashed] (BP) -- (P)  ;
+
+
+%畫上
+\foreach \v/\u/\t in 
+{   A/135/$A$,
+    P/270/$P$,
+    B/45/$B$,
+    Q/0/$Q$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[label=\u:\t] at (\v){};
+};
+\draw[ultra thick,fill] (QP) circle (1pt);
+\node[] at (QP){$Q^\prime$};
+
+\tkzLabelAngle[pos=0.5](A,P,xStart){$\theta$};
+\tkzLabelAngle[pos=0.5](B,P,xEnd){$\theta$};
+
+\end{tikzpicture}
+
+   	\begin{tikzpicture}
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (4,0);
+\coordinate (cCPt) at (2.33, 2.21);
+\coordinate (cDPt) at (3.39, 0.81);
+\coordinate (cEPt) at (3.69, 3.51);
+\coordinate (cFPt) at (5,0);
+\coordinate (cGPt) at (5.56,5.3);
+\coordinate (cHPt) at (6.5,0);
+\coordinate (cOPt) at (5,2);
+
+
+\draw (cAPt) -- (cGPt);
+\draw (cCPt) -- (cBPt);
+\draw (cAPt) -- (cHPt);
+\draw (cOPt) circle (2);
+
+\foreach \v/\u/\t in 
+{   cAPt/270/$A$,
+    cBPt/225/$B$,
+    cCPt/90/$C$,
+    cDPt/225/$D$,
+    cEPt/90/$E$,
+    cFPt/270/$F$,
+    cOPt/45/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+
+        \begin{tikzpicture}[scale=0.75]
+
+\coordinate (cAPt) at (0, 0);
+\coordinate (cBPt) at (4, 0);
+\coordinate (cCPt) at (3, 2);
+\coordinate (cDPt) at (1, 2);
+\coordinate (cxLeft) at (-1,0);
+\coordinate (cx) at (5.5,0);
+\coordinate (cYUp) at (0,3);
+\coordinate (cYDown) at (0,-0.5);
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (cxLeft) -- (cx);
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick]
+(cYDown) -- (cYUp) ;
+
+\draw [ultra thick](cAPt) -- (cBPt) -- (cCPt) -- (cDPt) -- cycle ;
+
+\foreach \v/\u/\t in 
+{   cAPt/270/$A$,
+    cBPt/270/$B$,
+    cCPt/90/$C$,
+    cDPt/90/$D$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2.5pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}

@@ -1,0 +1,399 @@
+%\documentstyle[11pt,times,slashbox,twoside,fancybox,ulem,amssymb,curves,epic,eepic,epsf,pstricks]{article}
+\textwidth = 15.00cm
+\textheight = 22.50cm
+\evensidemargin = 0.0cm
+\oddsidemargin  = 0.0cm
+\raggedbottom
+\input{E:/NCTUG2/TEX/LatexCodeTemplate/inputFile/Qheader.tex}
+
+\def\head{\special{em:linewidth 0.5pt}
+\unitlength 1.00mm
+\begin{picture}(0.00,0.00)(21,-5)
+\end{picture}}
+
+
+%^^^^^^^^^^^^^^^ 設定書眉頁碼 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+\makeatletter
+\def\ps@headings{%
+\def\@oddfoot{\hfill \shortstack{\brbt \bb 陳立數學\enskip
+～\thepage\,～\enskip 絕對智慧\\[5pt]尊重著作權所有‧盜翻印法律追究}\hfill}
+\def\@evenfoot{\@oddfoot}
+\def\@oddhead{\MB[\textwidth][l]{\head}}
+\def\@evenhead{\@oddhead}}
+\def\allinethickness#1{\let\@linefnt\tenlna \let\@circlefnt\tencirc
+    \@wholewidth #1 \@halfwidth .5\@wholewidth
+    \@gphlinewidth\@wholewidth \divide\@gphlinewidth 4736\relax}
+\makeatother
+%^^^^^^^^^^^^^^^ 結束設定 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+\def\var{{\rm Var}\,\,}
+\def\Arg{{\rm Arg}\,\,}
+\def\tsb#1{\mbox{\scriptsize \bf #1}}
+\def\Answer{\makebox[0pt][r]{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 解}{：}}}
+\def\Ans{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 解}{：}}
+\def\ans{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 答}{：}}
+\def\Proof{\makebox[0pt][r]{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 證}{：}}}
+\def\Pro{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 證}{：}}
+\def\note{\psframebox[framearc=0.3,framesep=0.2pt,fillstyle=solid,fillcolor=black]{\white \mb 註}{：}}
+% Modified by HDY
+%\font\aaa=alonse scaled\magstep5
+%\font\brbt=brush scaled\magstep1
+%\font\hhh=wei012
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\def\num#1{{\hhh\symbol{#1}}}
+
+\def\appli{\psframebox[framearc=0.95,framesep=1.5pt,linewidth=0.7pt]{\large \po \ 應\kern.08em用\nobreak\ }}
+\def\expla{\psframebox[framearc=0.3,framesep=1pt,linewidth=0.5pt,doubleline=true,doublesep=0.7pt,fillstyle=solid,fillcolor=black]{\white \mk 說明\nobreak}}
+\def\anala{\psframebox[framearc=0.6,framesep=1.5pt,linewidth=0.5pt,doubleline=true,doublesep=0.7pt,fillstyle=solid,fillcolor=black]{\white \mk 分析\nobreak}}
+\def\sindr{\psframebox[framearc=0.9,framesep=1.5pt,linewidth=0.5pt,doubleline=true,doublesep=0.7pt,fillstyle=solid,fillcolor=black]{\white \mk 心得\nobreak}}
+\def\oral{\psframebox[framearc=0.4,framesep=.6pt,linewidth=0.5pt,doubleline=true,doublesep=0.7pt,fillstyle=solid,fillcolor=black]{\white \mb 口訣\nobreak}}
+\def\home{\centerline{\pstribox[trimode=R,framesep=2pt,shadow=true]{\huge \ma 作\nobreak}\kern-1.5em%
+\pstribox[trimode=R,framesep=2pt,shadow=true]{\huge \ma 業\nobreak}}}
+
+\def\Tpone{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型一}\enskip}
+\def\Tptwo{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型二}\enskip}
+\def\Tpthree{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型三}\enskip}
+\def\Tpfour{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型四}\enskip}
+\def\Tpfive{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型五}\enskip}
+\def\Tpsix{\psframebox[framearc=0.3,framesep=0.6pt,fillstyle=solid,fillcolor=black]{\white \large \br 型六}\enskip}
+\def\Farone{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法1}}
+\def\Fartwo{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法2}}
+\def\Farthree{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法3}}
+\def\Farfour{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法4}}
+\def\Farfive{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法5}}
+\def\Farsix{\psframebox[framesep=0.3pt,linewidth=0.6pt,fillstyle=solid,fillcolor=black]{\white\sc 法6}}
+
+\def\txta{\pspolygon[linestyle=none,fillstyle=solid,fillcolor=darkgray]}
+%\def\txtb{\pspolygon[linestyle=none,fillstyle=solid,fillcolor=lgray]}
+\def\txtb{\pspolygon[linestyle=none,fillstyle=solid,fillcolor=lightgray]}
+
+\def\txtc{\pspolygon[linestyle=none,fillstyle=vlines,hatchangle=90,hatchwidth=.45pt,hatchsep=1.2pt]} %% ==
+\def\txtd{\pspolygon[linestyle=none,fillstyle=vlines,hatchangle=0,hatchwidth=.45pt,hatchsep=1.2pt]} %% ||
+\def\txte{\pspolygon[linestyle=none,fillstyle=crosshatch,hatchwidth=.4pt,hatchsep=1.8pt]} %% xx
+\def\txtf{\pspolygon[linestyle=none,fillstyle=hlines,hatchwidth=.4pt,hatchsep=1.0pt]} %% //
+\def\txtg{\pspolygon[linestyle=none,fillstyle=vlines,hatchwidth=.4pt,hatchsep=1.0pt]} %% \\
+\def\txtl{\pspolygon[linestyle=none,fillstyle=hlines,hatchwidth=.4pt,hatchsep=1.6pt]} %% //
+\def\txtm{\pspolygon[linestyle=none,fillstyle=vlines,hatchwidth=.4pt,hatchsep=1.6pt]} %% \\
+\def\txtn{\pspolygon[linestyle=none,fillstyle=hlines,hatchwidth=.4pt,hatchsep=1.6pt,hatchangle=27]} %% //
+\def\txto{\pspolygon[linestyle=none,fillstyle=vlines,hatchwidth=.4pt,hatchsep=1.6pt,hatchangle=63]} %% \\
+\def\txtp{\pspolygon[linestyle=none,fillstyle=hlines,hatchwidth=.4pt,hatchsep=1.6pt,hatchangle=63]} %% //
+\def\txtq{\pspolygon[linestyle=none,fillstyle=vlines,hatchwidth=.4pt,hatchsep=1.6pt,hatchangle=27]} %% \\
+\def\txtx{\pspolygon[linestyle=none,fillstyle=crosshatch*,fillcolor=black,hatchcolor=white,hatchwidth=1.1pt,hatchsep=.9pt]}  %% ::
+\def\txty{\pspolygon[linestyle=none,fillstyle=solid,fillcolor=lightgray]}
+\def\PolyPath{\pspolygon[linestyle=solid,fillstyle=none]}
+\def\txtz{\pspolygon[linestyle=none,fillstyle=solid,fillcolor=llightgray]}
+%%\put(10.00,10.00){\pscircle[linestyle=none,fillstyle=hlines,hatchwidth=.35pt,hatchsep=1.6pt]{10.00}}
+%%\put(10.00,10.00){\pscircle[linestyle=none,fillstyle=solid,fillcolor=llightgray]{8.00}}
+%%\put(10.00,10.00){\pswedge[linestyle=none,fillstyle=solid,fillcolor=llightgray]{12.00}{-90}{90}}
+%%\put(50.00,10.00){\pswedge[linestyle=none,fillstyle=solid,fillcolor=llightgray]{12.00}{0}{180}}
+
+
+
+\def\uub#1#2{\mathop{#1\vphantom{\Sum_}}\limits^{#2}}
+\def\ddb#1#2{\mathop{#1}\limits_{#2}}
+\def\dDb#1#2{\mathop{#1}\limits_{\enskip\; #2}}
+
+
+\def\para{\special{em:linewidth 0.6pt}
+\unitlength 0.8mm
+\begin{picture}(5.00,4.00)(1.3,0.5)
+\emline{0.00}{0.00}{1}{1.00}{3.00}{2}
+\emline{1.00}{3.00}{3}{4.00}{4.00}{4}
+\emline{4.00}{4.00}{5}{5.00}{0.00}{6}
+\emline{5.00}{0.00}{7}{0.00}{0.00}{8}
+\end{picture}}
+
+
+\newenvironment{analysis}[1]%                              %% 單全框，框上有字
+{\medskip\renewcommand{\arraystretch}{0.7}                 %% 上框雙線(內細外粗)
+\addtolength{\textwidth}{-23.85pt}
+\noindent\Hrulefill\kern.07em\raisebox{-.4ex}{\hp{#1}}%
+\Hrulefill\par\nobreak\vspace*{-0.64cm}
+\noindent\hrulefill\kern.07em\raisebox{-.4ex}{#1}%  %% 字串齊左.8mm
+\hrulefill\par\nobreak\vspace*{-0.24cm}
+\setlength{\arrayrulewidth}{0.5pt}
+\noindent\begin{tabular}{||@{\hspace{10.9pt}}c@{\hspace{10.9pt}}||}
+\\[7pt] \begin{minipage}[t]{\textwidth}}
+{\end{minipage}\\ \\ \hline\hline \end{tabular}\bigskip}
+
+%TODO: 雙框線
+
+\NewEnviron{boxedpar}[1]
+{ \centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }
+}
+
+\def \normalfboxsep{2.5pt}
+
+\NewEnviron{Dblbox}[1]
+{ \centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }
+}
+
+
+
+\NewEnviron{UDblbox}[1]
+{\centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }
+}
+
+\NewEnviron{DDblbox}[1]
+{ \centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }
+}
+
+\NewEnviron{HDblbox}[1]
+{\centering{ \setlength{\fboxsep}{24pt}
+        {\fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }}
+\setlength{\fboxsep}{2.5pt}
+}
+
+\NewEnviron{bboxedpar}
+{ \centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep} \parbox{14cm}{ \BODY }} }
+}
+
+\def\drsbox#1 
+{\centering{ \setlength{\fboxsep}{24pt}
+        \fbox{\setlength{\fboxsep}{\normalfboxsep}#1 } 
+    }}
+
+\def\HomeWorkTitle{
+\if\FlagHomeWorkTitle0
+    \noindent
+    \clearpage
+    \begin{center}
+        \psset{cornersize=absolute,linearc=.15\baselineskip} 
+        \psframebox[framesep=4pt]
+        {	\begin{minipage}[t]{14cm}
+            \begin{minipage}[t]{4cm}
+            {\large \SKai $\circledcirc$ 陳立數學 $\circledcirc$ }
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{4cm}
+            \begin{flush}{\large \SKai $\odot$ 回家作業 $\odot$}\end{flush}
+            \end{minipage}
+            \end{minipage}
+        }
+    \end{center}
+\fi
+}
+\def\Home{\HomeWorkTitle}
+\def\MyWindSymbol#1{
+    \font\myfont = "Wingdings 2" at 20pt
+    \myfont \XeTeXglyph#1}
+
+\def\MyWindSymbolSmall#1{
+    \font\myfont = "Wingdings 2" at 12pt
+    \myfont \XeTeXglyph#1}
+
+\def\MyTable{%
+    \ragged
+    \newcounter{glyphcount}
+    \setcounter{glyphcount}{0}
+    \font\myfont = "Wingdings 2"
+    
+    {char:  \myfont \char50}
+    
+    {xetexglyph: \myfont \XeTeXglyph50}
+    
+    
+    \whiledo
+    {\value{glyphcount}<\XeTeXcountglyphs\myfont}
+    {\arabic{glyphcount}:~%
+        {\myfont\XeTeXglyph\arabic{glyphcount}}\quad
+        \stepcounter{glyphcount}}
+}
+
+\def\Theme#1#2{%
+    %\unitlength 0.88mm
+    \fontsize{20}{20} \hspace{5mm} \MyWindSymbol{69}\hspace{5mm}\yl 主題\textbf{\textit{#1}}#2 \hspace{0.5mm} \MyWindSymbol{68} \resetEXCounter
+    
+    \bigskip
+    \bigskip
+    }
+
+%\def\Theme#1{%
+%%\unitlength 0.88mm
+%\Huge \MyWindSymbol{69} \yl 主題 \textbf{\textit{#1}} \MyWindSymbol{68} \hspace{0.3cm}
+%%\begin{picture}(51.00,13.00)(0,4.2)
+%%\psset{unit=\unitlength}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](11.62,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](8.91,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](5.09,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](2.38,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](2.38,5.09){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](5.09,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](8.91,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](11.62,5.09){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](27.62,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](43.62,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](24.91,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](40.91,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](21.09,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](37.09,11.62){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](18.38,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](34.38,8.91){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](18.38,5.09){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](34.38,5.09){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](21.09,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](37.09,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](24.91,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](40.91,2.38){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](27.62,5.09){2.25}
+%%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lgray](43.62,5.09){2.25}
+%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lightgray](23.00,7.00){7.00}
+%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lightgray](39.00,7.00){7.00}
+%%\pscircle[linewidth=.45pt,fillstyle=solid,fillcolor=lightgray](7.00,7.00){7.00}
+%%\pscircle[linestyle=none,fillstyle=solid,fillcolor=white](23.00,7.00){5.70}
+%%\pscircle[linestyle=none,fillstyle=solid,fillcolor=white](39.00,7.00){5.70}
+%%\pscircle[linestyle=none,fillstyle=solid,fillcolor=white](7.00,7.00){5.70}
+%%\put(7.3,7.00){\makebox(0,0)[cc]{\Huge \yl 主}}
+%%\put(23.3,7.00){\makebox(0,0)[cc]{\Huge \yl 題}}
+%%\put(39.00,7.00){\makebox(0,0)[cc]{\Huge \yl \textit{#1}}}
+%%\end{picture}
+%%\medskip
+%\bigskip}
+
+\def\Sect#1{\noindent\special{em:linewidth 0.7pt}%% Three Words
+\unitlength 1.1mm
+\psset{unit=1.1mm}
+
+\begin{picture}(100.00,15.00)(3,0)
+\txtf(2.00,2.00)(120.0,2.00)(120.00,3.20)( 2.00,3.20)
+\txtg(2.00,0.00)(120.0,0.00)(120.00,1.20)( 2.00,1.20)
+%\txty(2.00,5.00)( 6.00,5.00)( 6.00,13.00)( 2.00,13.00)
+%\txty(10.0,5.00)(14.00,5.00)(14.00,13.00)(10.00,13.00)
+%\txty(18.0,5.00)(22.00,5.00)(22.00,13.00)(18.00,13.00)
+%\special{em:linewidth 0.7pt}
+%%\emline{2.00}{5.00}{1}{10.00}{5.00}{2}
+%%\emline{10.00}{5.00}{3}{10.00}{13.00}{4}
+%%\emline{10.00}{13.00}{5}{2.00}{13.00}{6}
+%%\emline{2.00}{13.00}{7}{2.00}{5.00}{8}
+%%\emline{10.00}{5.00}{9}{18.00}{5.00}{10}
+%%\emline{18.00}{5.00}{11}{18.00}{13.00}{12}
+%%\emline{18.00}{13.00}{13}{10.00}{13.00}{14}
+%%\emline{18.00}{5.00}{15}{26.00}{5.00}{16}
+%%\emline{26.00}{5.00}{17}{26.00}{13.00}{18}
+%%\emline{26.00}{13.00}{19}{18.00}{13.00}{20}
+%\put(2.50,4.50){\rule{8.00\unitlength}{0.50\unitlength}}
+%\put(11.00,4.50){\rule{7.50\unitlength}{0.50\unitlength}}
+%\put(19.00,4.50){\rule{7.50\unitlength}{0.50\unitlength}}
+%\put(26.00,5.00){\rule{0.50\unitlength}{7.00\unitlength}}
+\put(2.75,9.00){\makebox(0,0)[lc]{\text{#1}}}
+\end{picture}
+
+\bigskip
+\bigskip
+}
+
+
+%\def\Sect#1{\noindent\special{em:linewidth 0.7pt}
+%\unitlength 1.1mm
+%\psset{unit=1.1mm}
+%\begin{picture}(100.00,15.00)(3,0)
+%\txtf(2.00,2.00)(120.0,2.00)(120.00,3.20)( 2.00,3.20)
+%\txtg(2.00,0.00)(120.0,0.00)(120.00,1.20)( 2.00,1.20)
+%\txtz(2.00,5.00)( 6.00,5.00)( 6.00,13.00)( 2.00,13.00)
+%\txtz(10.0,5.00)(14.00,5.00)(14.00,13.00)(10.00,13.00)
+%\txtz(18.0,5.00)(22.00,5.00)(22.00,13.00)(18.00,13.00)
+%\txtz(26.00,5.00)(30.00,5.00)(30.00,13.00)(26.00,13.00)
+%\special{em:linewidth 0.7pt}
+%\emline{2.00}{5.00}{1}{10.00}{5.00}{2}
+%\emline{10.00}{5.00}{3}{10.00}{13.00}{4}
+%\emline{10.00}{13.00}{5}{2.00}{13.00}{6}
+%\emline{2.00}{13.00}{7}{2.00}{5.00}{8}
+%\emline{10.00}{5.00}{9}{18.00}{5.00}{10}
+%\emline{18.00}{5.00}{11}{18.00}{13.00}{12}
+%\emline{18.00}{13.00}{13}{10.00}{13.00}{14}
+%\emline{18.00}{5.00}{15}{26.00}{5.00}{16}
+%\emline{26.00}{5.00}{17}{26.00}{13.00}{18}
+%\emline{26.00}{13.00}{19}{18.00}{13.00}{20}
+%\emline{26.00}{5.00}{15}{34.00}{5.00}{16}
+%\emline{34.00}{5.00}{17}{34.00}{13.00}{18}
+%\emline{34.00}{13.00}{19}{26.00}{13.00}{20}
+%\put(2.50,4.50){\rule{8.00\unitlength}{0.50\unitlength}}
+%\put(11.00,4.50){\rule{7.50\unitlength}{0.50\unitlength}}
+%\put(19.00,4.50){\rule{7.50\unitlength}{0.50\unitlength}}
+%\put(27.00,4.50){\rule{7.50\unitlength}{0.50\unitlength}}
+%\put(34.00,5.00){\rule{0.50\unitlength}{7.00\unitlength}}
+%\put(2.75,9.00){\makebox(0,0)[lc]{#1}}
+%\end{picture}}
+
+
+\def\Circled#1{\unitlength 1.00mm
+\linethickness{0.4pt}
+\begin{picture}(4.00,3.50)(0.5,-0.3)
+\put(2.00,1.00){\Circle{4.00}}
+\put(2.00,1.00){\makebox(0,0)[cc]{#1}}
+\end{picture}}
+
+
+\def\CCircled#1{\unitlength 1.00mm
+\linethickness{0.4pt}
+\begin{picture}(11.00,3.50)(0.5,-0.3)
+\put(5.50,1.00){\renewcommand{\yscale}{0.40}\Circle{10.00}}
+\put(5.60,1.00){\makebox(0,0)[cc]{#1}}
+\end{picture}}
+
+\def\CCCCircled#1{\unitlength 1.00mm
+\linethickness{0.4pt}
+\begin{picture}(22.00,3.50)(0.5,-0.3)
+\put(11.00,1.00){\renewcommand{\yscale}{0.20}\Circle{22.00}}
+\put(11.10,1.00){\makebox(0,0)[cc]{#1}}
+\end{picture}}
+
+
+\def\Circle#1{\circle{#1}}
+
+\def\longbox#1{\special{em:linewidth 0.5pt}%
+\unitlength 1.00mm%
+\begin{picture}(#1,6.00)
+\emline{0.00}{-4.00}{1}{0.00}{6.00}{2}
+\emline{0.00}{6.00}{3}{#1}{6.00}{4}
+\emline{#1}{6.00}{5}{#1}{-4.00}{6}
+\emline{#1}{-4.00}{7}{0.00}{-4.00}{8}
+\end{picture}}
+
+\newcommand\parallelogram{
+    \mathord{\text{
+            \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;}}}
+%\def\Squar{\mbox{\cfattr{tmm wnormalsize hnormalsize ir3}□}\,}
+\def\Squar{\parallelogram}
+
+%自動編號系統專區
+%主題編號區
+\def\THEMESTART{1}
+\newcounter{ThemeCounter}
+\newcommand{\ADDTO}{\addtocounter{ThemeCounter}{1}} % 簡化增加1 的指令
+\newcommand{\ThemeIndex}{\arabic{ThemeCounter} \ADDTO }
+\setcounter{ThemeCounter}{\THEMESTART}
+%
+%作業編號區
+\def\HOMEWORKSTART{1}
+\newcounter{HWCounter}
+\newcommand{\HWPLUSONE}{\addtocounter{HWCounter}{1}} % 簡化增加1 的指令
+\newcommand{\HWIndex}{\textbf{\arabic{HWCounter}.} \HWPLUSONE }
+\setcounter{HWCounter}{\HOMEWORKSTART}
+
+%作業詳解編號區
+\def\HWSOLSTART{1}
+\newcounter{HWSOLCounter}
+\newcommand{\HWSOLPLUSONE}{\addtocounter{HWSOLCounter}{1}} % 簡化增加1 的指令
+\newcommand{\HWSOLIndex}{\textbf{\arabic{HWSOLCounter}.} \HWSOLPLUSONE }
+\setcounter{HWSOLCounter}{\HWSOLSTART}
+
+%範例編號區
+\def\EXAMPLESTART{1}
+\newcounter{EXCounter}
+\newcommand{\EXPLUSONE}{\addtocounter{EXCounter}{1}}
+\newcommand{\EXIndex}{\textbf{\arabic{EXCounter}} \EXPLUSONE }
+\newcommand{\resetEXCounter}{\setcounter{EXCounter}{\EXAMPLESTART}}
+\resetEXCounter
+
+\def\QuestionGroup#1#2{#1 {\large \HWYH #2} }
+
+

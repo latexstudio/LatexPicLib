@@ -1,0 +1,328 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+\chapter{指數對數圖形}
+
+        \begin{tikzpicture}[scale=.5]
+\draw[ultra thick, ->] (-5.2,0) -- (5.2,0) node[below] {$x$};
+\draw[ultra thick, ->] (0,-1) -- (0,5.2) node[above] {$y$};
+\draw[very thin,color=gray] (-5,-1) grid (5,5);
+\draw[thick, color=black, domain=-1.5:4.64] plot (\x,{2^(\x/2)});
+\node[above] at (4.64, 5) {$y={2}^{\frac{x}{2} }$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=.5]
+\draw[ultra thick, ->] (-5.2,0) -- (5.2,0) node[below] {$x$};
+\draw[ultra thick, ->] (0,-1) -- (0,5.2) node[above] {$y$};
+\draw[very thin,color=gray] (-5,-1) grid (5,5);
+\draw[thick, color=black, domain=0.71:5] plot (\x, {log10(\x)/log10(sqrt(2))});
+\draw[thick, color=black, domain=-5:-0.71] plot (\x, {log10(-\x)/log10(sqrt(2))});
+\node[] at (5,4.64 ) {$y=\log_{2} x^2$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=.5]
+\draw[ultra thick, ->] (-5.2,0) -- (5.2,0) node[below] {$x$};
+\draw[ultra thick, ->] (0,-4) -- (0,5.2) node[above] {$y$};
+\draw[very thin,color=gray] (-5,-4) grid (5,5);
+\draw[thick, color=black, domain=0.01:5] plot (\x, {log10(\x)/log10(3)});
+\draw[thick, color=black, domain=-5:-0.01] plot (\x, {log10(-\x)/log10(3)});
+\draw[thick] (-1,-4) -- (5,2);
+
+\node at (5,4.64) {$y=\log_{3} \left| x \right|$};
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=1.0]
+\pgfmathdeclarefunction{exxA}{0}{%
+    \pgfmathparse{ln(x)/ln(3)}%
+}
+\pgfmathdeclarefunction{exxB}{0}{%
+    \pgfmathparse{ln(-x)/ln(3)}%
+}
+\pgfmathdeclarefunction{polyA}{0}{%
+    \pgfmathparse{x-3}%
+}
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+domain=-6:6,
+ymin=-9,
+ymax=9,
+xmin=-6,
+xmax=+6,
+xtick={-3,-2,-1,0,1,2,3},
+ytick={-3,-2,-1,0,1,2,3},
+samples=160,
+stack plots=y,
+y tick label style={, xshift=0.25em}
+]
+%\draw[thick] (axis cs:-1,-1) -- (axis cs:-1,3);
+
+\addplot+[black,ultra thick,mark=none,stack plots=y, domain=0.1:6] {exxA};
+\addplot+[black,ultra thick,mark=none,stack plots=y, domain=-6:-0.1] {exxB};
+%\node at (axis cs:-1, -1.5) {$x=-1$};
+\addplot+[black,ultra thick,mark=none,stack plots=y, domain=-6:6] {polyA};
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1.0]
+\pgfmathdeclarefunction{polyAAA}{0}{%
+    \pgfmathparse{ln(x)/ln(0.5)-0.7}%
+}
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=+3,
+xmin=-1.5,
+xmax=+3,
+xtick={-1,0,1,2},
+ytick={-1,0,1,2},
+samples=160,
+stack plots=y,
+y tick label style={, xshift=0.25em}
+]
+%\draw[thick] (axis cs:-1,-1) -- (axis cs:-1,3);
+
+\addplot+[black,ultra thick,mark=none,stack plots=y, domain=-0.9:3] {polyAAA};
+%\node at (axis cs:-1, -1.5) {$x=-1$};
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[yscale=1, xscale=1]
+\coordinate (A) at (0.6,0.74);
+\coordinate (Al) at (0,0.74);
+\coordinate (B) at (5,-1.46);
+\coordinate (Bl) at (0,-1.46);
+\coordinate (C) at (5,-2.32);
+\coordinate (Cl) at (0,-2.32);
+\coordinate (D) at (0.6, 0.46);
+\coordinate (Dl) at (0, 0.46);
+
+\draw[ultra thick, -{Stealth[scale=1,angle'=45]}] (-1.2,0) -- (6,0) node[below] {$x$};
+\draw[ultra thick, -{Stealth[scale=1,angle'=45]}] (0,-3) -- (0,1.5) node[above] {$y$};
+
+\draw[ thick, color=gray, dashed] (5,-3) -- (5,1.5) node[above ] {$x=5$};
+\draw[ thick,color=gray, dashed] (0.6,-3) -- (0.6,1.5) node[ above ] {$x=\frac{6}{7}$};;
+
+%\draw[very thin,color=gray] (-1,-5) grid (5,5);
+\draw[very thin, color=black, domain=0.4:5.2] plot (\x, {-log10(\x)/log10(2)}) node[] {$y=\log_{\frac{1}{2}} x$};
+\draw[ultra thick, color=black, domain=0.4:5.2] plot (\x, {-log10(\x)/log10(3)})node[] {$y=\log_{\frac{1}{3}} x$};;
+%\node[] at (5,4.64 ) {$y=\log_{2} x^2$};
+\draw[ultra thick, color=darkgray, dashed] 
+(A) -- (Al) node[left] {$a$};
+\draw[ultra thick, color=darkgray, dashed] 
+(B) -- (Bl) node[left] {$b$};
+\draw[ultra thick, color=darkgray, dashed] 
+(C) -- (Cl) node[left] {$c$};
+\draw[ultra thick, color=darkgray, dashed] 
+(D) -- (Dl) node[left] {$d$};
+\end{tikzpicture}
+
+   \begin{tikzpicture}[scale=1.0]
+\pgfmathdeclarefunction{polyAAA}{0}{%
+    \pgfmathparse{ln(x+1)/ln(0.5)+0.5}%
+}
+\pgfmathdeclarefunction{polyBBB}{0}{%
+    \pgfmathparse{ln(x+1)/ln(0.5)}%
+}
+
+\pgfmathdeclarefunction{polyori}{0}{%
+    \pgfmathparse{ln(x)/ln(0.5)}%
+}
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=+3,
+xmin=-1.5,
+xmax=+3,
+xtick={-1,0,1,2},
+ytick={-1,0,1,2},
+samples=160,
+y tick label style={, xshift=0.25em}
+]
+\draw[thick] (axis cs:-1,-1) -- (axis cs:-1,3);
+\draw[line width=2.3pt,-{Stealth[scale=1.3,angle'=45]}] (axis cs:1,0 ) -- (axis cs:0,0);
+\draw[line width=2.3pt,-{Stealth[scale=1.3,angle'=45]}] (axis cs:0,0 ) -- (axis cs:0,0.5);
+
+\addplot[black,ultra thick,dashed,mark=none,domain=-0.9:2] {polyBBB} ;
+\addplot[black,ultra thick,mark=none, domain=-0.9:2] {polyAAA} ;
+
+\addplot[black,ultra thick,dotted,mark=none, domain=-0.9:3] {polyori} ;
+
+\node at (axis cs:-1, -1.5) {$x=-1$};
+\node at (axis cs:1, 2) {$y=\log_b x$};
+\node at (axis cs:1.5, -1.7) {$y=\log_b (x+1)$};
+\end{axis}
+\end{tikzpicture}    
+
+\begin{tikzpicture}[scale=1.0]
+\pgfmathdeclarefunction{polyAAA}{0}{%
+    \pgfmathparse{ln(x+1)/ln(0.5)+0.5}%
+}
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=+3,
+xmin=-1.5,
+xmax=+3,
+xtick={-1,0,1,2},
+ytick={-1,0,1,2},
+samples=160,
+stack plots=y,
+y tick label style={, xshift=0.25em}
+]
+\draw[thick] (axis cs:-1,-1) -- (axis cs:-1,3);
+
+\addplot+[black,ultra thick,mark=none,stack plots=y, domain=-0.9:3] {polyAAA};
+\node at (axis cs:-1, -1.5) {$x=-1$};
+
+\end{axis}
+\end{tikzpicture}
+
+        \pgfmathdeclarefunction{polyB}{0}{%
+    \pgfmathparse{ln(x+2)/ln(2)}%
+}
+\begin{tikzpicture}[scale=0.6]
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+xlabel={$x$},
+ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=10,
+xmin=-2,
+xmax=14,
+xtick={-1,0,...,13},
+ytick={-1,0,...,9},
+samples=160,
+stack plots=y
+]
+\newcommand{\nStartX}{1}
+\newcommand{\nEndX}{8}
+\draw[ultra thick] (axis cs:\nStartX,0) -- (axis cs:\nStartX,8);
+\draw[ultra thick] (axis cs:\nEndX,0) -- (axis cs:\nEndX,8);
+\draw[ultra thick] (axis cs:-5,0) -- (axis cs:12,0);
+
+\addplot+[black,thick,mark=none,stack plots=y, domain=\nStartX:\nEndX] {polyB};
+\addplot+[mark=none,fill=gray!20,draw=black,domain=\nStartX:\nEndX,stack plots=y] {min(0-(polyB),0)} \closedcycle;
+
+\addplot+[black,thick,mark=none,stack plots=y, domain=-1.9:11] {polyB};
+\node at (axis cs:12,4.5){ $\log_2 (x+2)$};
+\node at (axis cs:\nStartX, 9) {$x=1$};
+\node at (axis cs:\nEndX, 9) {$x=8$};
+\node at (axis cs:6, -1.4) {圖一 $B$ 區域};
+\end{axis}
+\end{tikzpicture}
+\pgfmathdeclarefunction{poly}{0}{%
+    \pgfmathparse{ln(x)/ln(2)}%
+}
+\begin{tikzpicture}[scale=0.6]
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style =  {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+%xlabel={$x$},
+%ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=10,
+xmin=-2,
+xmax=14,
+xtick={-1,0,...,13},
+ytick={-1,0,...,9},
+samples=160,
+stack plots=y
+]
+\newcommand{\nStartX}{3}
+\newcommand{\nEndX}{10}
+
+
+\draw[ultra thick] (axis cs:\nStartX,0) -- (axis cs:\nStartX,8);
+\draw[ultra thick] (axis cs:\nEndX,0) -- (axis cs:\nEndX,8);
+
+%畫 log 曲線與著色
+\addplot+[black,thick,mark=none,stack plots=y, domain=\nStartX:\nEndX] {poly};
+\addplot+[mark=none,fill=gray!20,draw=black,domain=\nStartX:\nEndX,stack plots=y] {min(0-(poly),0)} \closedcycle;
+% 加強延伸 log f曲線部分
+\addplot+[black,thick,mark=none,stack plots=y, domain=0.1:11] {poly};
+
+\node at (axis cs:\nStartX, 9) {$x=3$};
+\node at (axis cs:\nEndX, 9) {$x=10$};
+
+\node at (axis cs:12,3.5){ $\log_2 x$};
+\node at (axis cs:6, -1.4) {圖二};
+\end{axis}
+\end{tikzpicture}
+\pgfmathdeclarefunction{polyA}{0}{%
+    \pgfmathparse{ln(x)/ln(2)+5}%
+}
+\begin{tikzpicture}[scale=0.6]
+\begin{axis}[
+unit vector ratio*=1 1 1,
+axis lines = middle,
+axis line style = {-{Stealth[scale=1.3,angle'=45]}},
+width=11cm,
+%xlabel={$x$},
+%ylabel={$y$},
+domain=-2:14,
+ymin=-2,
+ymax=10,
+xmin=-2,
+xmax=14,
+xtick={-1,0,...,13},
+ytick={-1,0,...,9},
+samples=160,
+stack plots=y
+]
+\newcommand{\nStartX}{3}
+\newcommand{\nEndX}{10}
+
+\draw[ultra thick] (axis cs:\nStartX,0) -- (axis cs:\nStartX,8);
+\draw[ultra thick] (axis cs:\nEndX,0) -- (axis cs:\nEndX,8.5);
+
+\draw[ultra thick] (axis cs:0.5,5) -- (axis cs:12,5);
+
+\draw [ pattern=north west lines, ultra thick] (axis cs:3,0) --(axis cs:3,5) -- (axis cs:10,5) -- (axis cs:10,0) -- (axis cs:3,0)  ;      
+
+
+\addplot+[black,thick,mark=none,stack plots=y, domain=\nStartX:\nEndX] {polyA};
+\addplot+[mark=none,fill=gray!20,draw=black,domain=\nStartX:\nEndX,stack plots=y] {min(0-(polyA),0)} \closedcycle;
+
+\addplot+[black,thick,mark=none,stack plots=y, domain=0.1:11] {polyA};
+
+\draw [ pattern=north west lines, ultra thick] (axis cs:3,0) --(axis cs:3,5) -- (axis cs:10,5) -- (axis cs:10,0) -- (axis cs:3,0)  ;
+
+\node at (axis cs:12.3,8.5){ $\log_2 32x$};
+\node at (axis cs:\nStartX, 9) {$x=3$};
+\node at (axis cs:\nEndX, 9) {$x=10$};
+\node at (axis cs:6, -1.4) {圖三 $A$ 區域};
+\end{axis}
+\end{tikzpicture}

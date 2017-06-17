@@ -1,0 +1,970 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+\chapter{三角}
+\begin{tikzpicture}
+
+\coordinate (cAPt) at (0,0);
+\coordinate (cBPt) at (53:5);
+\coordinate (cCPt) at (80.5:{2*sqrt(5)});
+\coordinate (cDPt) at (3,0);
+
+
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/45/$B$,
+    cCPt/135/$C$,
+    cDPt/0/$D$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};	    
+
+\draw[ultra thick] (cAPt) -- (cDPt) -- (cBPt)  -- (cCPt) -- (cAPt) circle;
+\draw[ultra thick] (cAPt) -- (cBPt) ;
+
+\end{tikzpicture}
+
+\begin{tikzpicture} %方格範例
+
+\foreach \v in {0,1,2,3} % x方向
+{
+    \foreach \u in {0,1}
+    {
+        \draw[ultra thick] (\v,\u) -- (\v,{\u+1}) -- ({\v+1},{\u+1}) -- ({\v+1},{\u}) -- (\v,\u) circle;
+    };
+};
+
+
+\begin{scope}[shift={(4,0)}]
+
+\foreach \v in {0} % x方向
+{
+    \foreach \u in {0,2,4}
+    {
+        \draw[ultra thick] (\v,\u) -- (\v,{\u+2}) -- ({\v+2},{\u+2}) -- ({\v+2},{\u}) -- (\v,\u) circle;
+    };
+};
+\end{scope}
+\coordinate (cAPt) at (0,1);
+\coordinate (cBPt) at (4,0);
+\coordinate (cCPt) at (6,6);
+
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/270/$B$,
+    cCPt/0/$C$}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};	    
+\end{tikzpicture}
+\begin{tikzpicture}
+
+\foreach \v in {0,1,2,3} % x方向
+{
+    \foreach \u in {0,1}
+    {
+        \draw[ultra thick] (\v,\u) -- (\v,{\u+1}) -- ({\v+1},{\u+1}) -- ({\v+1},{\u}) -- (\v,\u) circle;
+    };
+};
+
+
+\begin{scope}[shift={(4,0)}]
+
+\foreach \v in {0} % x方向
+{
+    \foreach \u in {0,2,4}
+    {
+        \draw[ultra thick] (\v,\u) -- (\v,{\u+2}) -- ({\v+2},{\u+2}) -- ({\v+2},{\u}) -- (\v,\u) circle;
+    };
+};
+\end{scope}
+\coordinate (cAPt) at (0,1);
+\coordinate (cBPt) at (4,0);
+\coordinate (cCPt) at (6,6);
+\coordinate (cDPt) at (0,0);
+\coordinate (cEPt) at (4,6);
+
+\foreach \v/\u/\t in 
+{cAPt/180/$A$,
+    cBPt/270/$B$,
+    cCPt/0/$C$,
+    cDPt/180/$D$,
+    cEPt/180/$E$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (2pt);
+    \node[label=\u:\t] at (\v){};
+};	    
+\draw[ultra thick] (cAPt) -- (cBPt) -- (cCPt) circle;
+
+\end{tikzpicture}
+
+    \begin{tikzpicture}[scale=1.0]
+%塔高立體圖
+\coordinate (cxleftPt) at (-2,0);
+\coordinate (cxPt) at (4,0);
+\coordinate (cOPt) at (0,0);
+\coordinate (cAPt) at (3,0);
+\coordinate (cBPt) at (-45:3);
+\coordinate (cTPt) at (0,3);
+\coordinate (chalfTPt) at (0,1.5);
+
+\coordinate (cyupPt) at (60:3);
+\coordinate (cydownPt) at (240:3); 
+
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cxleftPt) -- (cxPt) node[] {$x$};
+
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (cydownPt)->(cyupPt)   node[above] {$y$};
+\draw[ultra thick] (cOPt) -- (cTPt);
+\draw[ultra thick] (cOPt) -- (cBPt);
+\draw[ultra thick] (cBPt) -- (cTPt);
+\draw[ultra thick] (cOPt) -- (cAPt);
+\draw[ultra thick] (cTPt) -- (cAPt);
+\draw[ultra thick] (cAPt) -- (cBPt);
+
+
+\draw[ultra thick] (cAPt) circle (1pt);
+\draw[ultra thick] (cBPt) circle (1pt);
+\draw[ultra thick] (cTPt) circle (1pt);
+
+\node[label=225:$O$] at (cOPt){};
+\node[label=10:$A$] at (cAPt){};
+\node[label=175:$45^\circ$] at (cAPt){};
+\node[label=0:$B$] at (cBPt){};
+\node[label=355:$30^\circ$] at (-45:1){};
+\node[label=180:$h$] at (chalfTPt){};
+\node[label=272:$60^\circ$] at (cOPt){};
+
+
+\end{tikzpicture}
+    \begin{tikzpicture}[scale=1.5]
+\coordinate (cOPt) at (0:0);
+\coordinate (cAPt) at (0:1);
+\coordinate (cBPt) at (56:1);	%粗略B值
+\coordinate (cCPt) at (112:1);	%粗略C值
+
+\draw[ultra thick] (cAPt) circle (1pt);
+\draw[ultra thick] (cBPt) circle (1pt);
+\draw[ultra thick] (cCPt) circle (1pt);
+
+
+\draw[ultra thick] (0,0) circle (1);
+
+\draw[ultra thick] (cOPt) -- (cCPt);
+\node[label=225:$O$] at (cOPt){};
+\node[label=10:$A$] at (cAPt){};
+
+\node[label=56:$B$] at (cBPt){};
+\node[label=112:$C$] at (cCPt){};
+% x軸 y 軸 axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-2,0) -- (2,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-2)->(0,2)   node[above] {$y$};
+
+\end{tikzpicture}
+\newline
+\begin{tikzpicture}[scale=1.5]
+\coordinate (cOPt) at (0:0);
+\coordinate (cBPt) at (53:1);
+\coordinate (cPPt) at (0:1);
+\coordinate (yaxis) at (0,1);
+\coordinate (xaxis) at (1,0);
+\coordinate (cQPt) at (1, {4/3});
+\coordinate (cCPt) at (0,{4/5});
+\coordinate (cAPt) at ({3/5},0);
+\draw[ultra thick] (yaxis |- cBPt) node[left] {$C$} -| (xaxis -| cBPt) node[below] {$A$};
+
+%\draw[ultra thick] (cBPt) circle (3pt);
+
+\draw[ultra thick] (0,0) circle (1);
+\draw [ultra thick] (cQPt) -- (cPPt);
+\draw [ultra thick] (cQPt) -- (cOPt);
+
+\node[label=90:$B$] at (cBPt){};
+\node[label=225:$O$] at (cOPt){};
+\node[label={[label distance=0.0cm]5:$P$}] at (cPPt){};
+\node[label=45:$Q$] at (cQPt){};
+
+%標示直角角度
+\newcommand{\nRect}{0.2cm}
+\def\rectanglepath{-- +(-\nRect,0cm) -- +(-\nRect,+\nRect) -- +(0cm,\nRect) -- cycle} 
+\draw (cAPt) \rectanglepath;
+\newcommand{\nRectR}{-0.2cm}
+\def\rectanglepathFour{-- +(-\nRectR,0cm) -- +(-\nRectR,+\nRectR) -- +(0cm,\nRectR) -- cycle} 
+\draw (cAPt) \rectanglepath;
+\draw (cCPt) \rectanglepathFour;
+
+% x軸 y 軸 axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-2,0) -- (2,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-2)->(0,2)   node[above] {$y$};
+
+\end{tikzpicture}
+\newpage
+\begin{tikzpicture}[scale=1.0]
+%利用坐標給定位置
+\coordinate (cAPt) at (0,3);
+\coordinate (cBPt) at (6,3);
+\coordinate (cCPt) at (6,0);
+\coordinate (cDPt) at (0,0);
+\coordinate (cEPt) at (2,0);
+\coordinate (cFPt) at (0.7,0.2);
+
+%畫出封閉型區域
+\draw [ultra thick](cAPt)--(cBPt)--(cCPt)--(cDPt)--(cAPt) circle;
+
+\draw [ultra thick] (cAPt) -- (cCPt);
+\draw [ultra thick] (cEPt) -- (cBPt);
+
+%計算出交點座標
+\coordinate (cPPt) at (intersection of cAPt--cCPt and cEPt--cBPt);
+
+\draw [ultra thick] (cFPt) -- (cAPt);
+\draw [ultra thick] (cFPt) -- (cPPt);
+
+\node[label=135:$A$] at (cAPt){};
+\node[label=45:$B$] at (cBPt){};
+\node[label=-45:$C$] at (cCPt){};
+\node[label=225:$D$] at (cDPt){};
+\node[label=225:$E$] at (cEPt){};
+\node[label=90:$P$] at (cPPt){};
+\node[label=$\theta$] at (2.6,0.2){};
+\node[label=45:$F$] at (cFPt){};
+
+% x軸 y 軸 axes
+%    \draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-6,0) -- (6,0) node[] {$x$};
+%    \draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-6)->(0,6)   node[above] {$y$};
+\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.6]
+\newcommand{\nSide}{5}
+\newcommand{\nLittleSide}{\nSide *0.5176}
+
+
+%\coordinate (cAPt) at ({\nSide/2},{\nSide * sqrt(3) /2 });
+%\coordinate (cBPt) at (0, 0);
+%\coordinate (cCPt) at (\nSide, 0);
+%\coordinate (cFPt) at (15:{\nLittleSide});
+%\coordinate (cEPt) at (15:{\nDiffSide});
+%\coordinate (cDPt) at (15:{\nDiffSide} + 60:\nDiffSide);
+
+\coordinate (cAPt) at (90:\nSide);
+\coordinate (cBPt) at (210:\nSide);
+\coordinate (cCPt) at (330:\nSide);
+\coordinate (cDPt) at (105:\nLittleSide);
+\coordinate (cEPt) at (225:\nLittleSide);
+\coordinate (cFPt) at (345:\nLittleSide);
+
+\filldraw[fill=green!20,draw=green!50!black] (cBPt) -- ++ (0:2) arc (0:15:2) -- cycle;
+\filldraw[fill=green!20,draw=green!50!black] (cAPt) -- ++ (240:2) arc (240:255:2) -- cycle;
+\filldraw[fill=green!20,draw=green!50!black] (cCPt) -- ++(120:2) arc (120:135:2) -- cycle;
+
+\coordinate (cAngle1) at ($(cBPt)!0.2!8:(cCPt)$);
+\node[label=0:$1$] at (cAngle1){};
+\coordinate (cAngle2) at ($(cCPt)!0.2!8:(cAPt)$);
+\node[label=120:$2$] at (cAngle2){};
+\coordinate (cAngle3) at ($(cAPt)!0.2!8:(cBPt)$);
+\node[label=266:$3$] at (cAngle3){};
+
+
+
+\draw [ultra thick](cAPt)--(cBPt);
+\draw [ultra thick](cAPt)--(cCPt);
+\draw [ultra thick](cBPt)--(cCPt);
+\draw [ultra thick](cBPt)--(cFPt);
+\draw [ultra thick](cAPt)--(cEPt);
+\draw [ultra thick](cCPt)-- (cDPt);
+
+%\draw [ultra thick](cCPt)--(cDPt);
+
+
+%\draw [ultra thick] (10,0) arc [radius=5, start angle=0, end angle= 180];
+
+\node[label=90:$A$] at (cAPt){};
+\node[label=180:$B$] at (cBPt){};
+\node[label=0:$C$] at (cCPt){};
+\node[label=75:$D$] at (cDPt){};
+\node[label=165:$E$] at (cEPt){};
+\node[label=270:$F$] at (cFPt){};
+\node[label=270:$F$] at (cFPt){};
+
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.6, font=\large]
+\newcommand{\nSide}{5}
+\newcommand{\nAngle}{360 /5}
+
+
+
+\coordinate (cAPt) at ({\nAngle*1-90}:\nSide);
+\coordinate (cBPt) at ({\nAngle*2-90}:\nSide);
+\coordinate (cCPt) at ({\nAngle*3-90}:\nSide);
+\coordinate (cDPt) at ({\nAngle*4-90}:\nSide);
+\coordinate (cEPt) at (-90:\nSide)           ;
+
+\draw [ultra thick](cAPt)--(cBPt)--(cCPt)--(cDPt)--(cEPt)--(cAPt) circle;
+\node[label=\nAngle*1-90:$A$] at (cAPt){};
+\node[label=\nAngle*2-90:$B$] at (cBPt){};
+\node[label=\nAngle*3-90:$C$] at (cCPt){};
+\node[label=\nAngle*4-90:$D$] at (cDPt){};
+\node[label=\nAngle*5-100:$E$] at (cEPt){};
+%x y axes
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (-6,0) -- (6,0) node[] {$x$};
+\draw[-{Stealth[scale=1.3,angle'=45]},semithick] (0,-6)->(0,6)   node[above] {$y$};
+
+\end{tikzpicture}
+    \begin{tikzpicture}[scale=1, font=\large]
+\coordinate (cCPt) at (0,0);
+\coordinate (cBPt) at (0,3);
+\coordinate (cAPt) at (4,0);
+\draw [ultra thick](cAPt)--(cBPt)--(cCPt)--cycle;
+%利用旋轉做出圖形 cBPt 為圓心 1 倍線段長(cAPt)度為半徑，逆時針旋轉90度
+\coordinate (cDPt) at ($(cBPt)!1!90:(cAPt)$);
+\coordinate (cEPt) at ($(cAPt)!1!-90:(cBPt)$);
+
+\draw [ultra thick] (cAPt) -- (cBPt) -- (cDPt) -- (cEPt) -- cycle;
+
+\node[label=315:$A$] at (cAPt){};
+\node[label=180:$B$] at (cBPt){};
+\node[label=225:$C$] at (cCPt){};
+\node[label=45:$D$] at (cDPt){};
+\node[label=30:$E$] at (cEPt){};
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=0.5, font=\large]
+\newcommand{\nCx}{{3*sqrt(19)}}
+\newcommand{\nBx}{{-sqrt(19)}}
+\newcommand{\nAy}{{12*sqrt(3/19)}}
+\newcommand{\nAx}{{sqrt(27-(144*3/19))}}
+
+\coordinate (cDPt) at (0,0);
+\coordinate (cCPt) at (\nCx, 0);
+\coordinate (cBPt) at (\nBx,0);
+\coordinate (cAPt) at (\nAx,\nAy);
+\draw [ultra thick](cAPt)--(cBPt)--(cCPt)--cycle;
+
+\draw [ultra thick] (cAPt) -- (cDPt);
+
+\node[label=90:$A$] at (cAPt){};
+\node[label=180:$B$] at (cBPt){};
+\node[label=0:$C$] at (cCPt){};
+\node[label=270:$D$] at (cDPt){};
+
+%漂亮標示角度
+\pic [draw, -, "$30^\circ$", angle eccentricity=2.3] {angle = cBPt--cAPt--cDPt};
+%標示直角角度
+\coordinate (O) at (cCPt);
+\coordinate (A) at (cAPt);
+\path (A) -- ($(A)!1cm!(O)$)coordinate (A1);
+\path (A) -- ($(A)!1cm!(cDPt)$)coordinate (A3);
+\path (A) -- ($(A3)!1cm!-90:(A)$)coordinate (A2);
+\draw (A)--(A1) -- (A2) --(A3)--cycle;
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1, font=\large]
+\newcommand{\nSide}{5}
+\newcommand{\nAngle}{360 /5}
+
+
+
+\coordinate (cBPt) at (0,0);
+\coordinate (cAPt) at (0:\nSide);
+\coordinate (cCPt) at (45:{sqrt(2)* \nSide});
+\coordinate (cMPt) at ($(cAPt)!0.5!(cCPt)$);
+\draw [ultra thick](cAPt)--(cBPt)--(cCPt)--cycle;
+\draw [ultra thick] (cBPt) -- (cMPt);
+
+\node[label=315:$A$] at (cAPt){};
+\node[label=225:$B$] at (cBPt){};
+\node[label=80:$C$] at (cCPt){};
+\node[label=0:$M$] at (cMPt){};
+%漂亮標示角度
+\pic [draw, -, "$\theta$", angle eccentricity=2.5] {angle = cMPt--cBPt--cCPt};
+\newcommand{\nRect}{0.5cm}
+%標示直角角度
+\def\rectanglepath{-- +(-\nRect,0cm) -- +(-\nRect,+\nRect) -- +(0cm,\nRect) -- cycle}
+\draw (cAPt) \rectanglepath;
+\end{tikzpicture}
+
+
+    \begin{tikzpicture}[scale=.5] % 已知三邊長畫出 三角形ABC
+
+
+\def\sAB{5}
+\def\sAC{6}
+\def\sBC{8}
+
+\coordinate [label=below:$B$] (B) at (0,0);
+\coordinate [label=below:$C$] (C) at (\sBC,0);
+\begin{pgfinterruptboundingbox}
+\node (Circ1) at (C) [circle through=($ (C) + (0:\sAC) $)] {};
+\node (Circ2) at (B) [circle through=($ (B) + (0:\sAB) $)] {};
+\end{pgfinterruptboundingbox}
+\coordinate [label=above:$A$] (A) at (intersection 2 of Circ2 and Circ1);
+\draw (A) -- (B) -- (C) -- cycle;
+\tkzLabelSegment[midway,  below](B,C){$\sBC$ };
+\tkzLabelSegment[midway,  above ](A,C){$\sAC$};
+\tkzLabelSegment[midway,  above left](A,B){$\sAB$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale = 0.4]
+\draw (0.,0.)-- (7.,0.);
+\draw (7.,0.)-- (0.824,5.098);
+\draw (0.824,5.098)-- (0.,0.);
+\draw (0.824,5.098)-- (7.,0.);
+\draw (7.,0.)-- (12.098,6.175);
+\draw (12.098,6.175)-- (5.923,11.274333612170306);
+\draw (5.923,11.274333612170306)-- (0.824,5.098);
+\draw (0.,0.)-- (0.824,5.098);
+\draw (0.824,5.098)-- (-4.274333612170306,5.923089457836511);
+\draw (-4.274333612170306,5.923089457836511)-- (-5.098,0.8243779228331025);
+\draw (-5.098,0.8243779228331025)-- (0.,0.);
+\draw [fill=black] (0.,0.) circle (1.5pt);
+\draw[color=black] (-0.5032213038841461,-0.7427250625524924) node {$B$};
+\draw [fill=black] (7.,0.) circle (2.5pt);
+\draw[color=black] (8.590833399129002,0.584874164164758) node {$C$};
+\draw [fill=black] (0.824,5.098) circle (2.5pt);
+\draw[color=black] (0.824,6.95735045240756) node {$A$};
+\draw [fill=black] (12.098,6.175) circle (2.5pt);
+\draw[color=black] (12.97191084729592,7.355630220422735) node {$F$};
+\draw [fill=black] (5.923,11.274333612170306) circle (2.5pt);
+\draw[color=black] (6.798574443060717,12.466887243284148) node {$G$};
+\draw [fill=black] (-4.274333612170306,5.923089457836511) circle (1.5pt);
+\draw[color=black] (-4.154119177356578,7.6211500657661855) node {$E$};
+\draw [fill=black] (-5.098,0.8243779228331025) circle (1.5pt);
+\draw[color=black] (-6.477417824111762,1.0495338935157956) node {$D$};
+\end{tikzpicture}
+
+    \begin{tikzpicture}
+\coordinate (cAPt) at (-3.91, 0.85);
+\coordinate (cBPt) at (-0.83, -3.91); 
+\coordinate (cCPt) at (2.4, 3.2);
+\coordinate (cDPt) at (-1.57, 3.68);
+\coordinate (cOPt) at (0, 0);
+
+\draw (cAPt) -- (cBPt) -- (cCPt) -- (cDPt) -- cycle;
+\draw (cAPt) -- (cCPt);
+\draw (cOPt) circle (4);
+
+
+\tkzMarkAngle(cCPt,cAPt,cDPt);
+\tkzLabelAngle[pos=1.5](cDPt,cAPt,cCPt){$30^\circ$};
+
+\tkzMarkAngle(cAPt,cCPt,cBPt);
+\tkzLabelAngle[pos=1.5](cAPt,cCPt,cBPt){$45^\circ$};
+
+\foreach \v/\u/\t in 
+{   cAPt/225/$A$,
+    cBPt/270/$B$,
+    cCPt/45/$C$,
+    cDPt/90/$D$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}
+
+        \begin{tikzpicture}[scale=1.3]
+\coordinate (cOPt) at (0,0);
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (-2,0.) -- (2,0.)  node[] {$x$};
+%\foreach \x in {-3,-2,-1,1,2}
+%\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[-{Stealth[scale=1,angle'=45]},color=black] (0.,-2.) -- (0.,2) node[above] {$y$};
+\draw (cOPt) circle (1);
+\foreach \v in 
+{
+    1,2,3,4,5
+}
+{
+    \draw[ultra thick,fill] (\v * 57.3: 1) circle (0.8pt);
+    %\node[above] at (\v,0){$\v$};
+}
+
+\foreach \v/\u/\t in 
+{   1/57/$1$,
+    2/114/$2$,
+    3/171/$3$,
+    4/228/$4$,
+    5/285/$5$
+}
+{
+    \draw [-{Stealth[scale=1.3,angle'=45]},semithick] (cOPt) -- (\v * 57.3:1.5) ;
+    \node[label=\u:\t] at (\v * 57.3:1.5){};
+};
+\end{tikzpicture}
+
+\section{極坐標}
+         \begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1+\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5+5*sin(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1-\cos
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5-5*cos(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1+\cos
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5+5*cos(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1-\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5-5*sin(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+%            \begin{tikzpicture}[scale=2]
+%            \draw[->] (-1,0) -- (1,0);
+%            \draw[->] (0,-1) -- (0,1);
+%            \draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1-\tan
+%                    \theta$}};
+%            \draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+%            cs:angle=\x r,radius=      {5-5*tan(\x r)});    %r = angle en radian
+%            \end{tikzpicture}
+%            \resizebox{5cm}{5cm}{
+%                    \begin{tikzpicture}[scale=2]
+%                    \draw[->] (-1,0) -- (1,0);
+%                    \draw[->] (0,-1) -- (0,1);
+%                    \draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=1+\tan
+%                            \theta$}};
+%                    \draw[color=red,domain=0:1.5,samples=200,smooth] plot (canvas polar
+%                    cs:angle=\x r,radius=      {5+5*tan(\x r)});    %r = angle en radian
+%                    \draw[color=red,domain=1.64:3.07,samples=200,smooth] plot (canvas polar
+%                    cs:angle=\x r,radius=      {5+5*tan(\x r)});    %r = angle en radian
+%                    \draw[color=red,domain=3.21:4.64,samples=200,smooth] plot (canvas polar
+%                    cs:angle=\x r,radius=      {5+5*tan(\x r)});    %r = angle en radian
+%                    \draw[color=red,domain=4.78:6.28,samples=200,smooth] plot (canvas polar
+%                    cs:angle=\x r,radius=      {5+5*tan(\x r)});    %r = angle en radian
+%                    \end{tikzpicture}
+%                    }
+\clearpage 
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=5-5\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5-5*sin(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=5-5\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {5-5*sin(\x r)});    %r = angle en radian
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=5-5\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (canvas polar
+cs:angle=\x r,radius=      {.5cm-.5cm*sin(\x r)});    %r = angle en
+radian
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,0) -- (1,0);
+\draw[->] (0,-1) -- (0,1);
+\draw node [red] at (-1,.25) {\scriptsize{Kardioida $r=5-5\sin
+        \theta$}};
+\draw[color=red,domain=0:6.28,samples=200,smooth] plot (xy polar
+cs:angle=\x r,radius=      {.5-.5*sin(\x r)});    %r = angle en radian
+\end{tikzpicture} 
+
+       \begin{tikzpicture}[scale=3]
+
+\coordinate (cOPt) at (0, 0);
+\coordinate (cAPt) at (150:1);
+\coordinate (cFakedAPt) at (150:1.3);
+\coordinate (cxLeft) at (-1.2,0);
+\coordinate (cx) at (1.2,0);
+\coordinate (cYUp) at (0,1.2);
+\coordinate (cYDown) at (0,-1.2);
+
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (cxLeft) -- (cx) node (xaxis) [] {$x$};
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick]
+(cYDown) -- (cYUp) node (yaxis) [above] {$y$};
+
+\draw [-{Stealth[scale=1.3,angle'=45]},ultra thick](cOPt) -- (cFakedAPt) node [ above left]{ $\theta$};
+
+\draw [ultra thick](cOPt) -- (cAPt) node [ midway, below]{ $r$};
+
+
+\draw[ultra thick,fill] (cAPt) circle (0.8pt);
+\node[] at (cAPt){$P(x,y)$};
+
+\draw[ultra thick] (0,0) circle (1);
+\foreach \v/\u/\t in 
+{   cOPt/225/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+\end{tikzpicture}        
+\begin{tikzpicture}[scale=3]
+
+\coordinate (cOPt) at (0, 0);
+\coordinate (cAPt) at (108:1);
+\coordinate (cFakedAPt) at (108:4);
+
+\coordinate (cxLeft) at (-1.2,0);
+\coordinate (cx) at (1.2,0);
+\coordinate (cYUp) at (0,1.8);
+\coordinate (cYDown) at (0,-1.2);
+\coordinate (cQPt) at (0,1);
+\coordinate (cFakedPt) at (1,1);
+
+\coordinate (cSPt) at (-1,0);
+\coordinate (cFakedTPt) at (-1,-1);
+
+\coordinate (cTPt) at (intersection of cSPt--cFakedTPt and cOPt--cAPt);
+
+\coordinate (cHPt) at ($(cxLeft)!(cAPt)!(cx)$); %計算垂足
+
+\coordinate (cPPt) at ($(cYUp)!(cAPt)!(cYDown)$); %計算垂足
+
+\coordinate (cRPt) at (intersection of cOPt--cAPt and cQPt--cFakedPt);
+
+
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (cxLeft) -- (cx) node (xaxis) [] {$x$};
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick]
+(cYDown) -- (cYUp) node (yaxis) [above] {$y$};
+
+\draw [-{Stealth[scale=1.3,angle'=45]},ultra thick](cOPt) -- (cFakedAPt) node [ above left]{ $2.6\pi$};
+
+\draw [ultra thick] (cRPt)-- (cQPt);
+
+\draw [ultra thick] (cPPt)-- (cAPt);
+
+\draw [ultra thick] (cSPt)-- (cTPt);
+
+
+
+\draw[ultra thick] (0,0) circle (1);
+
+%\draw[ultra thick] (cAPt) -- (cHPt);
+
+\tkzMarkRightAngle[size=0.1](cOPt,cPPt,cAPt);
+\tkzMarkRightAngle[size=0.1](cOPt,cSPt,cTPt);
+\tkzMarkRightAngle[size=0.1](cRPt,cQPt,cYUp);
+
+
+\foreach \v/\u/\t in 
+{   cOPt/270/$O$,
+    cAPt/225/$A$,
+    %            cHPt/270/$H$,
+    cQPt/45/$Q$,
+    cPPt/315/$P$,
+    cRPt/135/$R$,
+    cSPt/225/$S$,
+    cTPt/180/$T$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+
+    \begin{tikzpicture}[scale=3]
+
+\coordinate (cOPt) at (0, 0);
+\coordinate (cAPt) at (108:1);
+\coordinate (cFakedAPt) at (108:4);
+
+\coordinate (cxLeft) at (-1.2,0);
+\coordinate (cx) at (1.2,0);
+\coordinate (cYUp) at (0,1.8);
+\coordinate (cYDown) at (0,-1.2);
+\coordinate (cQPt) at (0,1);
+\coordinate (cFakedPt) at (1,1);
+
+\coordinate (cSPt) at (-1,0);
+\coordinate (cFakedTPt) at (-1,-1);
+
+\coordinate (cTPt) at (intersection of cSPt--cFakedTPt and cOPt--cAPt);
+
+\coordinate (cHPt) at ($(cxLeft)!(cAPt)!(cx)$); %計算垂足
+
+\coordinate (cPPt) at ($(cYUp)!(cAPt)!(cYDown)$); %計算垂足
+
+\coordinate (cRPt) at (intersection of cOPt--cAPt and cQPt--cFakedPt);
+
+
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (cxLeft) -- (cx) node (xaxis) [] {$x$};
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick]
+(cYDown) -- (cYUp) node (yaxis) [above] {$y$};
+
+\draw [-{Stealth[scale=1.3,angle'=45]},ultra thick](cOPt) -- (cFakedAPt) node [ above left]{ $2.6\pi$};
+
+\draw [ultra thick] (cRPt)-- (cQPt);
+
+\draw [ultra thick] (cPPt)-- (cAPt);
+
+\draw [ultra thick] (cSPt)-- (cTPt);
+
+
+
+\draw[ultra thick] (0,0) circle (1);
+
+%\draw[ultra thick] (cAPt) -- (cHPt);
+
+\tkzMarkAngle[size=0.1](cOPt,cPPt,cAPt);
+\tkzMarkAngle[size=0.1](cOPt,cSPt,cTPt);
+\tkzMarkAngle[size=0.1](cRPt,cQPt,cYUp);
+
+
+\foreach \v/\u/\t in 
+{   cOPt/270/$O$,
+    cAPt/225/$A$,
+    %            cHPt/270/$H$,
+    cQPt/45/$Q$,
+    cPPt/315/$P$,
+    cRPt/135/$R$,
+    cSPt/225/$S$,
+    cTPt/180/$T$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (0.8pt);
+    \node[label=\u:\t] at (\v){};
+};
+
+\end{tikzpicture}
+
+    
+\begin{tikzpicture}[scale=0.8]
+\coordinate (O) at (0, 0 );
+\coordinate (T) at (270:2);
+\coordinate (A) at (245:5);
+\coordinate (B) at (305:8);
+\draw (O) -- (A) -- (B) circle;
+
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (O) -- (A) node [midway, left ] { 時針 $5 cm$};
+\draw [-{Stealth[scale=1.3,angle'=45]},semithick] (O) -- (B) node [midway, above ] { 分針 $8 cm$};
+\draw [dashed] (A) -- (B) node [midway, below  ] { $7 cm$};
+\draw [dashed] (O) -- (T) ;
+
+\tkzMarkAngle(A,O,T);
+\tkzLabelAngle[pos=1.5](A,O,T){$\theta_2$};
+
+\tkzMarkAngle(T,O,B);
+\tkzLabelAngle[pos=1.5](T,O,B){$\theta_1$};
+
+
+\foreach \v/\u/\t in 
+{ A/below left/$A$,
+    B//$B$,
+    O/above/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[\u] at (\v){\t};
+}; 
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=0.8]
+\coordinate (xUpLeft) at (-1, 5 );
+\coordinate (xUp) at (10, 5);
+\coordinate (xLeft) at (-1,0);
+\coordinate (x) at (10,0);
+\coordinate (O) at (0,0);
+\coordinate (A) at (0, 5);
+\coordinate (L) at (10, {(20 - 10*sqrt(3))/sqrt(5)});
+\coordinate (B) at ({5 *sqrt(3)}, 0);
+
+\coordinate (T) at (1.5,0);
+
+\node at ({5 *sqrt(3)}, 2.5){ 河道 };
+\node at ({5 *sqrt(3)}, -0.5){ 陸地 };
+\node at ({5 *sqrt(3)}, 5.5){ 陸地 };
+
+\draw (xLeft) -- (x);
+\draw (xUpLeft) -- (xUp);
+
+\draw [dashed] (A) -- (O) node [midway, left ] {$50 m$};
+\draw [dashed] (A) -- (B) node [midway, above   ] {$100 m$};
+
+\foreach \v/\u/\t in 
+{ A/above/$A$,
+    B/above/$B$,
+    O/below left/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[\u] at (\v){\t};
+}; 
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=0.8]
+\coordinate (xUpLeft) at (-1, 5 );
+\coordinate (xUp) at (10, 5);
+\coordinate (xLeft) at (-1,0);
+\coordinate (x) at (10,0);
+\coordinate (O) at (0,0);
+\coordinate (A) at (0, 5);
+\coordinate (L) at (10, {(20 - 10*sqrt(3))/sqrt(5)});
+\coordinate (B) at ({5 *sqrt(3)}, 0);
+\coordinate (T) at (1.5,0);
+
+
+\draw [dashed] (A) -- (O) node [midway, left ] {$50 m$};
+\draw (O) -- (T)  node [midway, below] {$x$};
+
+\draw (xLeft) -- (x);
+\draw (xUpLeft) -- (xUp);
+
+
+\draw [dashed] (A) -- (O) node [midway, left ] {$50 m$};
+\draw [ultra thick, dashed](A) -- (T)  node [midway,   ] {水路施工 $y \ m$};
+\draw [ultra thick, dashed](B) -- (T)  node [midway, above] {陸地施工 $50\sqrt{3} - x\  m$};
+
+\tkzMarkRightAngle(T,O,A);
+
+
+\foreach \v/\u/\t in 
+{ A/above/$A$,
+    B/above/$B$,
+    T/above right/$T$,
+    O/below left/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[\u] at (\v){\t};
+}; 
+\end{tikzpicture}
+
+    \begin{tikzpicture}[scale=0.8]
+\coordinate (xUpLeft) at (-1, 5 );
+\coordinate (xUp) at (10, 5);
+\coordinate (xLeft) at (-1,0);
+\coordinate (x) at (10,0);
+\coordinate (O) at (0,0);
+\coordinate (A) at (0, 5);
+\coordinate (L) at (10, {(20 - 10*sqrt(3))/sqrt(5)});
+\coordinate (B) at ({5 *sqrt(3)}, 0);
+\coordinate (K) at (0, {-2 *sqrt(15)});
+\coordinate (T) at (1.5,0);
+\coordinate (H) at ($(B)!(T)!(K)$);
+
+\draw (xLeft) -- (x);
+\draw (xUpLeft) -- (xUp);
+\draw (L) -- (K);
+\draw (A) -- (K);
+\draw (A) -- (T)  node [midway, above  ] {$a$};
+\draw (B) -- (T)  node [midway, above  ] {$b$};
+
+\draw (T) -- (H) node [midway, below left] {$\frac{2}{3}b$};
+
+\tkzMarkAngle(T,H,B);
+
+\tkzMarkAngle(T,B,H);
+\tkzMarkAngle(x,B,L);
+\tkzLabelAngle[pos=1.5](L,B,x){$\theta$};
+\tkzLabelAngle[pos=-1.5](K,B,T){$\theta$};
+
+\foreach \v/\u/\t in 
+{ A/above/$A$,
+    B/above/$B$,
+    K/right/$K$,
+    T/above right/$T$,
+    O/below left/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[\u] at (\v){\t};
+}; 
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
+\coordinate (xUpLeft) at (-1, 5 );
+\coordinate (xUp) at (10, 5);
+\coordinate (xLeft) at (-1,0);
+\coordinate (x) at (10,0);
+\coordinate (O) at (0,0);
+\coordinate (A) at (0, 5);
+\coordinate (L) at (10, {(20 - 10*sqrt(3))/sqrt(5)});
+\coordinate (B) at ({5 *sqrt(3)}, 0);
+\coordinate (K) at (0, {-2 *sqrt(15)});
+\coordinate (H) at ($(B)!(A)!(K)$);
+
+\coordinate (T) at (intersection of A--H and B--O);
+
+\draw (xLeft) -- (x);
+\draw (xUpLeft) -- (xUp);
+\draw (L) -- (K);
+\draw (A) -- (K);
+\draw (A) -- (T)  node [midway, above  ] {$a$};
+\draw (B) -- (T)  node [midway, above  ] {$b$};
+
+\draw (T) -- (H) node [midway, below left] {$\frac{2}{3}b$};
+
+\tkzMarkAngle(T,H,B);
+\tkzMarkAngle(T,O,A);
+\tkzMarkAngle(T,B,H);
+\tkzMarkAngle(O,A,T);
+\tkzMarkAngle(x,B,L);
+\tkzLabelAngle[pos=1.5](L,B,x){$\theta$};
+\tkzLabelAngle[pos=1.5](T,A,O){$\theta$};
+\tkzLabelAngle[pos=-1.5](K,B,T){$\theta$};
+
+\foreach \v/\u/\t in 
+{ A/above/$A$,
+    B/above/$B$,
+    K/right/$K$,
+    T/above right/$T$,
+    O/below left/$O$
+}
+{
+    \draw[ultra thick,fill] (\v) circle (1pt);
+    \node[\u] at (\v){\t};
+}; 
+\end{tikzpicture}
+
+    \begin{tikzpicture}
+% The triangle
+\tkzDefPoint(2,2){A}
+\tkzDefPoint(5,-2){B}
+\tkzDefPoint(1,-2){C}
+\tkzDrawSegments(A,B B,C C,A)
+
+% circumcircle
+\tkzCircumCenter(A,B,C)\tkzGetPoint{G}
+\tkzDrawPoint(G)
+\tkzDrawCircle(G,A)
+
+% incircle
+\tkzDefCircle[in](A,B,C)\tkzGetPoint{I}\tkzGetLength{rIN}
+\tkzDrawPoint(I)
+\tkzDrawCircle[R](I,\rIN pt)
+
+\tkzLabelPoints[below](B)
+\tkzLabelPoints[below left](C)
+\tkzLabelPoints[above left](A,I,G)
+\end{tikzpicture}
